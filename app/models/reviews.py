@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 class Review(db.Model):
-    __tablename__ = "review"
+    __tablename__ = "reviews"
 
     if environment == 'production':
         __table_args__ = {'schema': SCHEMA}

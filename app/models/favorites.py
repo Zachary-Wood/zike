@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 class Favorite(db.Model):
-    __tablename__ = 'favorite'
+    __tablename__ = 'favorites'
 
     if environment == 'production':
         __table_args__ = {'schema': SCHEMA}

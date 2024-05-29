@@ -2,7 +2,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
 class Product(db.Model):
-    __tablename__ = 'product'
+    __tablename__ = 'products'
 
     if environment == 'production':
         __table_args__ = {'schema': SCHEMA}
@@ -11,6 +11,7 @@ class Product(db.Model):
     owner_id = db.column(db.Integer, db.ForeignKey(add_prefix_for_prod('user.id')), nullable=False)
     name = db.Column(db.String(50), nullable=False)
     type = db.Column(db.String(25), nullable=False)
+    price = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(255), nullable=False)
     gender = db.Column(db.String(25), nullable=False)
     size = db.Column(db.String(25), nullable=False)
@@ -29,6 +30,7 @@ class Product(db.Model):
             'owner_id': self.owner_id,
             'name': self.name,
             'type': self.type,
+            'price': self.price,
             'description': self.description,
             'gender': self.gender,
             'size': self.size,
