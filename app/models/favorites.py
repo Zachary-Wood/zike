@@ -10,8 +10,8 @@ class Favorite(db.Model):
     
 
     id = db.Column(db.Integer, primary_key=True)
-    fav_owner_id = db.column(db.Integer, db.ForeignKey(add_prefix_for_prod('user.id')), nullable=False)
-    fav_item_id = db.column(db.Integer, db.ForeignKey(add_prefix_for_prod('product.id')), nullable=False)
+    fav_owner_id = db.column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
+    fav_item_id = db.column(db.Integer, db.ForeignKey(add_prefix_for_prod('products.id')), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 

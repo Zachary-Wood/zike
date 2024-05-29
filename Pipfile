@@ -30,6 +30,7 @@ zipp = "==3.17.0"
 boto3 = "*"
 botocore = "*"
 uuid = "*"
+datetime = "*"
 
 [dev-packages]
 

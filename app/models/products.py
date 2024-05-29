@@ -8,13 +8,13 @@ class Product(db.Model):
         __table_args__ = {'schema': SCHEMA}
     
     id = db.Column(db.Integer, primary_key=True)
-    owner_id = db.column(db.Integer, db.ForeignKey(add_prefix_for_prod('user.id')), nullable=False)
+    owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     name = db.Column(db.String(50), nullable=False)
-    type = db.Column(db.String(25), nullable=False)
+    type = db.Column(db.String(50), nullable=False)
     price = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(255), nullable=False)
     gender = db.Column(db.String(25), nullable=False)
-    size = db.Column(db.String(25), nullable=False)
+    size = db.Column(db.Integer, nullable=False)
     clothing_type = db.Column(db.String(25), nullable=False)
     product_image = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now)
@@ -23,7 +23,14 @@ class Product(db.Model):
     owner = db.relationship('User', back_populates='products')
     reviews = db.relationship('Review', back_populates='product', cascade="all, delete-orphan")
 
-   
+    
+    def set_sizes(self, sizes):
+        self.sizes = json.dumps(sizes)
+
+    def get_sizes(self):
+        return json.loads(self.sizes)
+    
+    
     def to_dict(self):
         return {
             'id': self.id,
