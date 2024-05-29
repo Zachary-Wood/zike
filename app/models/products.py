@@ -24,11 +24,6 @@ class Product(db.Model):
     reviews = db.relationship('Review', back_populates='product', cascade="all, delete-orphan")
 
     
-    def set_sizes(self, sizes):
-        self.sizes = json.dumps(sizes)
-
-    def get_sizes(self):
-        return json.loads(self.sizes)
     
     
     def to_dict(self):
