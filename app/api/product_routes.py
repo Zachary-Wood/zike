@@ -38,32 +38,35 @@ def get_products():
 # get a products based on id 
 @product_routes.route("/<int:id>", methods=["GET"])
 def get_product_by_id(id):
-    indv_product = Product.query.get(id)
+    indv_product = Product.query.get(id) # grab the product by a specific id
     
-    product_data = []
-    if indv_product:
+    product_data = [] # a list to hold all of thee data 
+    if indv_product: # if we find a product to make it into a dictionary and put it into the list
         product_dict = indv_product.to_dict()
         product_data.append(product_dict)
-        return {"single product": product_data}, 200
+        return {"single product": product_data}, 200 # return the data for the front end
     else: 
-        return {"message": "Product not found"}, 404
+        return {"message": "Product not found"}, 404 # if no product is found we return a 404
 
 
 # post a new product 
 @product_routes.route('/new', methods=["POST"])
 @login_required
 def post_new_products():
-    form = ProductForm()
-    form["csrf_token"].data = request.cookies["csrf_token"]
+    form = ProductForm() # form to conect to our form validations
+    form["csrf_token"].data = request.cookies["csrf_token"] # make sure we get the csrf ticket
+
 
     if form.validate_on_submit():
+        #we grab the image from the form.data
         image = form.data["product_image"]
         
+        # set a url variable to be changed later
         url=None
 
-        print('image', image)
+        print('image', image) # print the image for help
 
-        if image:
+        if image: # if there is an image we upload it to our s3 bucket and we make the url the url in the s3 bucket
             image.filename = get_unique_filename(image.filename)
             upload = upload_file_to_s3(image)
 
@@ -73,10 +76,10 @@ def post_new_products():
             url = upload['url']
            
 
-        sizes = form.data["size"]
-        sizes_str = json.dumps(sizes)
+        sizes = form.data["size"] 
+        sizes_str = json.dumps(sizes) # change the size to '[]' instead of []
         
-        product_form_items = {
+        product_form_items = { # payload for the new product
             "owner_id": current_user.id,
             "name": form.data["name"],
             "type": form.data["type"],
@@ -87,10 +90,10 @@ def post_new_products():
             "clothing_type": form.data["clothing_type"],
             "product_image": url
         }
-        new_product = Product(**product_form_items)
-        db.session.add(new_product)
-        db.session.commit()
-        return jsonify(new_product.to_dict()), 201
+        new_product = Product(**product_form_items) # spread the payload into a new product variable
+        db.session.add(new_product) # add to db 
+        db.session.commit() # commit the db
+        return jsonify(new_product.to_dict()), 201 # we return the new product data for the front end
 
     return jsonify(form.errors), 400
 
@@ -99,27 +102,27 @@ def post_new_products():
 @product_routes.route("/<int:id>", methods=["PUT"])
 def update_product(id):
 
-    indv_product = Product.query.get(id)
-    form = EditProductForm()
+    indv_product = Product.query.get(id) # get a product by its id to update 
+    form = EditProductForm() # new form data
 
-    if (current_user.id != indv_product.owner_id):
+    if (current_user.id != indv_product.owner_id): # if the current user doesnt own the product we send a 401 error 
         return {"message": "You do not own this product"}, 401
     
     if not indv_product:
-        return {"message": "Product could not be found"}, 404
+        return {"message": "Product could not be found"}, 404 #if not found throw a 404 
     
 
 
-    form["csrf_token"].data = request.cookies["csrf_token"]
+    form["csrf_token"].data = request.cookies["csrf_token"] # grab csrf token 
     if form.validate_on_submit():
-        image = form.data["product_image"]
+        image = form.data["product_image"] # grab image from data
         
         url = None
 
         print('image', image)
 
         if image:
-            image.filename = get_unique_filename(image.filename)
+            image.filename = get_unique_filename(image.filename) # if there is an image thats not new upload it to s3 bucket 
             upload = upload_file_to_s3(image)
 
             if "url" not in upload:
@@ -128,7 +131,7 @@ def update_product(id):
             url = upload['url']
            
 
-        indv_product.name = form.data["name"]
+        indv_product.name = form.data["name"] # set all the new data to what the user changed 
         indv_product.type = form.data["type"]
         indv_product.price = form.data["price"]
         indv_product.description = form.data["description"]
@@ -137,27 +140,27 @@ def update_product(id):
         indv_product.clothing_type = form.data["clothing_type"]
         indv_product.product_image = url
 
-        db.session.commit()
-        return indv_product.to_dict(), 200
-    return jsonify(form.errors), 400
+        db.session.commit()  # commit the new data
+        return indv_product.to_dict(), 200 # send the front end all of the data to be displayed
+    return jsonify(form.errors), 400 # if there was any form errors return a bad request 
 
 
 @login_required
 @product_routes.route("/<int:id>", methods=["DELETE"])
 def delete_product():
-    indv_product = Product.query.get(id)
+    indv_product = Product.query.get(id) # we grab the id from the url 
 
-    if not indv_product: 
+    if not indv_product:  # if no product return 404 
         return {"message":"Can't find the product to delete"}, 404
     else: 
-        db.session.delete(indv_product)
-        db.session.commit()
-        return json.dumps({"message": "Succesfully Deleted your product"}), 202
+        db.session.delete(indv_product) # if theres a product we delete it by its id 
+        db.session.commit() # commit those changes 
+        return json.dumps({"message": "Succesfully Deleted your product"}), 202 # give a message that it was deleted 
     
 
 @product_routes.route("/<int:id>/reviews")
 def get_products_reviews(id):
-    product_reviews = Review.query.filter_by(product_id = id).all()
+    product_reviews = Review.query.filter_by(product_id = id).all() 
 
     if product_reviews is not None:
         all_product_reviews = {"reviews": [eachReview.to_dict() for eachReview in product_reviews]}
@@ -215,5 +218,16 @@ def delete_review(id, reviewId):
         db.session.delete(indv_review)
         db.session.commit()
         return json.dumps({"message": "Succesfully Deleted your product"}), 202
+    
+@product_routes.route('/<int:id>/reviews/current')
+def get_current_user_reviews(id):
+
+    current_review = Review.query.filter_by(user_id = current_user.id)
+
+    # if len(current_review) < 1:
+    #     return {"message":"Reviews can be found for this user"}, 404
+    
+    return current_review.to_dict(), 200
+
 
 
