@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, json, request, redirect
 from flask_login import login_required, current_user
 from app.models.products import Product
-from app.forms.products_form import ProductForm
+from app.forms.products_form import ProductForm, EditProductForm
 from app.api.AWS_helpers import upload_file_to_s3, get_unique_filename
 from app.models import db
 
@@ -48,46 +48,108 @@ def get_product_by_id(id):
 
 
 # post a new product 
-@login_required
 @product_routes.route('/new', methods=["POST"])
+@login_required
 def post_new_products():
     form = ProductForm()
-
     form["csrf_token"].data = request.cookies["csrf_token"]
-    if form.validate_on_submit():
-        
 
+    if form.validate_on_submit():
         image = form.data["product_image"]
-        url = None
-        if image: 
+        
+        url=None
+
+        print('image', image)
+
+        if image:
             image.filename = get_unique_filename(image.filename)
             upload = upload_file_to_s3(image)
 
-            print(upload)
-
             if "url" not in upload:
-                return {"message": "Your image could not be uploaded"}, 500
-        
+                return jsonify({"message": "Your image could not be uploaded"}), 500
+
             url = upload['url']
+           
 
-
+        sizes = form.data["size"]
+        sizes_str = json.dumps(sizes)
+        
         product_form_items = {
-                "owner_id": current_user.id,
-                "name": form.data["name"],
-                "type": form.data["type"],
-                "price": form.data["price"],
-                "description": form.data["description"],
-                "gender": form.data["gender"],
-                "size": form.data["size"],
-                "clothing_type": form.data["clothing_type"],
-                "product_image": url
-            }
-
+            "owner_id": current_user.id,
+            "name": form.data["name"],
+            "type": form.data["type"],
+            "price": form.data["price"],
+            "description": form.data["description"],
+            "gender": form.data["gender"],
+            "size": sizes_str,
+            "clothing_type": form.data["clothing_type"],
+            "product_image": url
+        }
         new_product = Product(**product_form_items)
-
         db.session.add(new_product)
         db.session.commit()
-        return new_product.to_dict(), 201
+        return jsonify(new_product.to_dict()), 201
 
-    return form.errors, 400
+    return jsonify(form.errors), 400
+
+
+@login_required
+@product_routes.route("/<int:id>", methods=["PUT"])
+def update_product(id):
+
+    indv_product = Product.query.get(id)
+    form = EditProductForm()
+
+    if (current_user.id != indv_product.owner_id):
+        return {"message": "You do not own this product"}, 401
+    
+    if not indv_product:
+        return {"message": "Product could not be found"}, 404
+    
+
+
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    if form.validate_on_submit():
+        image = form.data["product_image"]
+        
+        url = None
+
+        print('image', image)
+
+        if image:
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+
+            if "url" not in upload:
+                return jsonify({"message": "Your image could not be uploaded"}), 500
+
+            url = upload['url']
+           
+
+        indv_product.name = form.data["name"]
+        indv_product.type = form.data["type"]
+        indv_product.price = form.data["price"]
+        indv_product.description = form.data["description"]
+        indv_product.gender = form.data["gender"]
+        indv_product.size = form.data["size"]
+        indv_product.clothing_type = form.data["clothing_type"]
+        indv_product.product_image = url
+
+        db.session.commit()
+        return indv_product.to_dict(), 200
+    return jsonify(form.errors), 400
+
+
+@login_required
+@product_routes.route("/<int:id>", methods=["DELETE"])
+def delete_product():
+    indv_product = Product.query.get(id)
+
+    if not indv_product: 
+        return {"message":"Can't find the product to delete"}, 404
+    else: 
+        db.session.delete(indv_product)
+        db.session.commit()
+        return json.dumps({"message": "Succesfully Deleted your product"}), 202
+    
 

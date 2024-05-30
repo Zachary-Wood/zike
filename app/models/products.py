@@ -1,5 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
+import json
 
 class Product(db.Model):
     __tablename__ = 'products'
@@ -14,9 +15,9 @@ class Product(db.Model):
     price = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(255), nullable=False)
     gender = db.Column(db.String(25), nullable=False)
-    size = db.Column(db.Integer, nullable=False)
+    size = db.Column(db.String, nullable=True)
     clothing_type = db.Column(db.String(25), nullable=False)
-    product_image = db.Column(db.String(255), nullable=False)
+    product_image = db.Column(db.String(255))
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 
