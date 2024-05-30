@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FaUserCircle } from 'react-icons/fa';
+
 import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { IoPerson } from "react-icons/io5";
 
 function ProfileButton() {
   const dispatch = useDispatch();
@@ -41,8 +42,8 @@ function ProfileButton() {
 
   return (
     <>
-      <button onClick={toggleMenu}>
-        <FaUserCircle />
+      <button  className="profile-button" onClick={toggleMenu}>
+        <IoPerson className="user-circle"/> 
       </button>
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
@@ -56,16 +57,27 @@ function ProfileButton() {
             </>
           ) : (
             <>
+          <div className="login-logout-con">
+            <img 
+          src="/NikeLogo.png" 
+          alt="Nike Logo" 
+          className="login-logo"
+        />
+              <div className="login-btn">
               <OpenModalMenuItem
                 itemText="Log In"
                 onItemClick={closeMenu}
                 modalComponent={<LoginFormModal />}
               />
+              </div>
+              <div className="logout-btn">
               <OpenModalMenuItem
                 itemText="Sign Up"
                 onItemClick={closeMenu}
                 modalComponent={<SignupFormModal />}
               />
+              </div>
+              </div>
             </>
           )}
         </ul>

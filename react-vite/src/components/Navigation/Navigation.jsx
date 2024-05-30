@@ -1,18 +1,37 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
+import { IoMdSearch } from "react-icons/io";
 import "./Navigation.css";
 
 function Navigation() {
-  return (
-    <ul>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
+  const navigate = useNavigate();
 
-      <li>
+  return (
+    <>
+    <div className="nav-bar-con">
+      <div className="left-navbar">
+        <img 
+          src="/NikeLogo.png" 
+          alt="Nike Logo" 
+          onClick={() => navigate("/")} 
+          className="logo"
+        />
+      </div>
+
+      <div className="search-box">
+      <IoMdSearch className="search-logo"/>
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Search for products"
+        />
+
+      </div>
+      <p className="profile">
         <ProfileButton />
-      </li>
-    </ul>
+      </p>
+      </div>
+    </>
   );
 }
 
