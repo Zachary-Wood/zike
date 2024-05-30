@@ -2,6 +2,8 @@ from flask import Blueprint, jsonify, json, request, redirect
 from flask_login import login_required, current_user
 from app.models.products import Product
 from app.forms.products_form import ProductForm, EditProductForm
+from app.forms.review_form import ReviewForm, EditReviewForm
+from app.models.reviews import Review
 from app.api.AWS_helpers import upload_file_to_s3, get_unique_filename
 from app.models import db
 
@@ -152,4 +154,66 @@ def delete_product():
         db.session.commit()
         return json.dumps({"message": "Succesfully Deleted your product"}), 202
     
+
+@product_routes.route("/<int:id>/reviews")
+def get_products_reviews(id):
+    product_reviews = Review.query.filter_by(product_id = id).all()
+
+    if product_reviews is not None:
+        all_product_reviews = {"reviews": [eachReview.to_dict() for eachReview in product_reviews]}
+    else:
+        all_product_reviews = {"reviews": []}
+
+    return all_product_reviews, 200
+
+@product_routes.route("/<int:id>/reviews/new", methods=["POST"])
+def create_a_review_for_product(id):
+    form = ReviewForm()
+
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+
+    if form.validate_on_submit():
+        new_review = Review(
+            user_id = current_user.id,
+            product_id = id,
+            review = form.data["review"],
+            rating = form.data["rating"]
+        )
+    
+    db.session.add(new_review)
+    db.session.commit()
+    
+    return new_review.to_dict()
+
+@product_routes.route('/<int:id>/reviews/<int:reviewId>', methods=["PUT"])
+def update_a_review_for_product(reviewId, id):
+
+    form = EditReviewForm()
+
+    single_review = Review.query.get(reviewId)
+
+    if not single_review: 
+        return {"message": "Review could not be found"}, 404
+    
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    if form.validate_on_submit():
+        single_review.review = form.data["review"]
+        single_review.rating = form.data["rating"]
+
+        db.session.commit()
+        return single_review.to_dict(), 200
+    return jsonify(form.errors), 400
+
+@product_routes.route('/<int:id>/reviews/<int:reviewId>', methods=["DELETE"])
+def delete_review(id, reviewId):
+    indv_review = Review.query.get(reviewId)
+
+    if not indv_review:
+        return {"message":"Can't find the review to delete"}, 404
+    else: 
+        db.session.delete(indv_review)
+        db.session.commit()
+        return json.dumps({"message": "Succesfully Deleted your product"}), 202
+
 
