@@ -6,6 +6,7 @@ import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { IoPerson } from "react-icons/io5";
+import {NavLink} from "react-router-dom";
 
 function ProfileButton() {
   const dispatch = useDispatch();
@@ -48,13 +49,23 @@ function ProfileButton() {
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
           {user ? (
-            <>
-              <li>{user.username}</li>
-              <li>{user.email}</li>
-              <li>
-                <button onClick={logout}>Log Out</button>
+            < div className='profile-dropdown-con'>
+              <img 
+              src="/NikeLogo.png" 
+              alt="Nike Logo" 
+              className="login-logo"
+              />
+              <li className='username'>Hello {user.username}!</li>
+              <li className='email'>{user.email}</li>
+              <NavLink to='/products/new'
+              onClick={toggleMenu}
+              >
+              Add new product
+              </NavLink>
+              <li className='btn-padding'>
+                <button  className='logout-btn-signedin' onClick={logout}>Log Out</button>
               </li>
-            </>
+            </ div>
           ) : (
             <>
           <div className="login-logout-con">

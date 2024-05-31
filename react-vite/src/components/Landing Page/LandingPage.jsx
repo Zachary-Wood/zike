@@ -13,6 +13,7 @@ const LandingPage = () => {
   products = Object.values(products)
   console.log(products);
   // let navigate = useNavigate()
+  const randProduct = Math.floor(Math.random() * 12) + 1;
 
 
   const dispatch = useDispatch();
@@ -38,7 +39,9 @@ const LandingPage = () => {
 
         <h1 className="tatis-header"> A STAR ALWAYS SHINES </h1>
         <p>San Diego Padres star Fernando Tatis Jr style is built for the bright lights on and off the feild</p>
+        <NavLink to={`/products/${randProduct}`}>
         <button className="shop-tatis-button">Shop now</button>
+        </NavLink>
 
     </div>
 

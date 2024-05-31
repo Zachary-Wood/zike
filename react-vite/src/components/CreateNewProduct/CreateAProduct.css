@@ -1,0 +1,11 @@
+.button-box {
+    display: flex;
+    width: 20%;
+    flex-wrap: wrap;
+    padding: 5px;
+    gap: 10px;
+}
+
+.button-box label {
+    padding: 2px;
+}
