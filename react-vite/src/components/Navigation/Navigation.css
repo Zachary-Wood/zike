@@ -48,6 +48,10 @@
   width: 300px;
   background-color: rgb(233, 227, 227);
   cursor: pointer;
+  transition: transform 0.3s; 
+}
+.search-box:hover {
+  transform: scale(1.35); 
 }
 
 .search-input {

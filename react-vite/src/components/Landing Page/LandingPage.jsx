@@ -1,10 +1,30 @@
 import "./LandingPage.css"
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { useEffect} from "react";
+import { loadProductsThunk } from "../../redux/products";
+
+
 
 const LandingPage = () => {
   // fix for main
+
+  let products = useSelector((state) => state.productReducer)
+  products = Object.values(products)
+  console.log(products);
+  // let navigate = useNavigate()
+
+
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch((loadProductsThunk()));
+  
+  
+  }, [dispatch]);
   
     return (
-    <div>
+    <div className="fullpage-landing">
     <div className="image-con">
     <img src="/tatis3.jpeg" alt='Tatis picture' className="tatis"/>
 
@@ -21,6 +41,41 @@ const LandingPage = () => {
         <button className="shop-tatis-button">Shop now</button>
 
     </div>
+
+
+   
+    <section className="products-con">
+
+      {products?.map((product) => (
+        <NavLink 
+        className={'product-item-con'}
+        key={product.id}
+        to={`/products/${product.id}`}
+        >
+        
+        <div className="product-card-con">
+          <img 
+          className="product-image"
+          src={product?.product_image}
+          />
+          <div className="product-text-con">
+
+          <h3 className="product-name">{product?.name}</h3>
+          <p className="product-type">{product?.type}</p>
+          <p className="product-name">${product?.price}</p>
+          </div>
+
+
+        </div>
+        
+
+        </NavLink>
+      ))}
+
+
+
+    </section>
+
 
 
 
