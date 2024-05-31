@@ -8,10 +8,10 @@
 
 .tatis {
     width: 100%;
-    height: 650px;
     bottom: 0px;
     object-fit: cover;
     position: relative;
+    height: 650px;
 }
 
 

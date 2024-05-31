@@ -6,7 +6,7 @@ const LandingPage = () => {
     return (
     <div>
     <div className="image-con">
-    <img src="/tatis.jpeg" alt='Tatis picture' className="tatis"/>
+    <img src="/tatis3.jpeg" alt='Tatis picture' className="tatis"/>
 
         <div className="do-it-con">
         <img src="/NikeLogo.png" className="do-it-logo"/>
@@ -23,7 +23,7 @@ const LandingPage = () => {
     </div>
 
 
-    
+
 
 
     </div>
