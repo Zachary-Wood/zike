@@ -1,7 +1,7 @@
 import "./LandingPage.css"
 
 const LandingPage = () => {
-  
+  // fix for main
   
     return (
     <div>
