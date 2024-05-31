@@ -13,16 +13,17 @@ const LandingPage = () => {
   products = Object.values(products)
   console.log(products);
   // let navigate = useNavigate()
-  const randProduct = Math.floor(Math.random() * 12) + 1;
+  
 
 
   const dispatch = useDispatch();
+  const randProduct = Math.floor(Math.random() * 12) + 1;
   
   useEffect(() => {
     dispatch((loadProductsThunk()));
   
   
-  }, [dispatch]);
+  }, [dispatch, randProduct]);
   
     return (
     <div className="fullpage-landing">
@@ -65,7 +66,7 @@ const LandingPage = () => {
 
           <h3 className="product-name">{product?.name}</h3>
           <p className="product-type">{product?.type}</p>
-          <p className="product-name">${product?.price}</p>
+          <p className="product-price">${product?.price}</p>
           </div>
 
 

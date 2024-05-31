@@ -17,9 +17,9 @@ const ProductDetails = () => {
 
   console.log(selectedProduct);
 
+  
   const nikeSayings = ['Member Product', 'Just In', 'Going Fast', 'Available', 'Best Seller']
-
-
+  
   useEffect(() => {
     dispatch(loadProductByIdThunk())
   
@@ -38,7 +38,7 @@ const ProductDetails = () => {
     
 
     <div className="products-details-text-con">
-        <p className="nike-random">{nikeSayings[(Math.floor(Math.random() * nikeSayings.length))]}</p>
+        <p className="nike-random">{nikeSayings && nikeSayings[(Math.floor(Math.random() * nikeSayings.length))]}</p>
         <h1 className="product-name-h1">{selectedProduct?.name}</h1>
         <p>{selectedProduct?.gender + ' ' + selectedProduct?.type}</p>
         <p className="product-det-price">${selectedProduct?.price}</p>
