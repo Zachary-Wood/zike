@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import "./ProductDetails.css"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { loadProductByIdThunk } from "../../redux/products"
+import {loadProductsThunk } from "../../redux/products"
 import DeleteAProduct from "../ProductsForm/DeleteAProduct"
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 
@@ -24,7 +24,7 @@ const ProductDetails = () => {
   const nikeSayings = ['Member Product', 'Just In', 'Going Fast', 'Available', 'Best Seller']
   
   useEffect(() => {
-    dispatch(loadProductByIdThunk())
+    dispatch(loadProductsThunk())
   
 },[dispatch])
   

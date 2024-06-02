@@ -158,7 +158,7 @@ return (
                 >
                 <option value="Shoes">Shoes</option>
                 <option value="Lifestyle Shoe">Lifestyle Shoe</option>
-                <option value="Men's Trail Running Shoes">Men&apos;s Trail Running Shoes Size</option>
+                <option value="Trail Running Shoes">Trail Running Shoes Size</option>
                 <option value="Basketball Shoe">Basketball Shoe</option>
                 <option value="Running Shoe">Running Shoe</option>
                 <option value="Golf Shoe">Golf Shoe</option>
