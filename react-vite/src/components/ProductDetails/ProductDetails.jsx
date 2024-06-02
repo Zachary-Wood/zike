@@ -3,7 +3,8 @@ import "./ProductDetails.css"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { loadProductByIdThunk } from "../../redux/products"
-
+import DeleteAProduct from "../ProductsForm/DeleteAProduct"
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 
 
 
@@ -11,7 +12,9 @@ const ProductDetails = () => {
   const {productId} = useParams()
   const dispatch = useDispatch()
   const product = useSelector((state) => state.productReducer)
-  console.log(product);
+
+  const currentUser = useSelector((state) => state.session.user)
+  console.log(currentUser)
 
   const selectedProduct = product[productId]
 
@@ -65,6 +68,21 @@ const ProductDetails = () => {
     </div>
     
     </div>
+
+    {currentUser && currentUser?.id === selectedProduct?.owner_id && (
+     
+          
+                    <OpenModalMenuItem
+                      itemText={<button>Delete this product</button>}
+                      className={'delete-btn'}
+                      modalComponent={
+                        <DeleteAProduct
+                          productId={selectedProduct?.id}
+                          
+                        />
+                      }
+                    />
+                  )}
 
 
 
