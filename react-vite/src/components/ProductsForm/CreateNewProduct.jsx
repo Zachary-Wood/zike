@@ -124,6 +124,7 @@ const CreateNewProduct = () => {
   
 return (
     <div className="create-new-prod-con">
+       {imageLoading && <LoadingModal />}
         <h1 className='add-your-product'>Add your product</h1>
 
         <form className="add-product-form" onSubmit={handleSubmit} encType="multipart/form-data">
@@ -275,7 +276,7 @@ return (
 
         <div className='btn-con-prod'>
         <button className='product-submit-btn' type="submit" disabled={Object.values(errors).length > 0}>Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
+
 
         </div>
 

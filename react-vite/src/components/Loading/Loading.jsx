@@ -6,7 +6,7 @@ const LoadingModal = () => {
     <div className="modal">
       <div className="modal-content">
         <div className="spinner"></div>
-        <h1>Loading...</h1>
+        <h1 className='h1-padding'>Loading...</h1>
       </div>
     </div>
   );
