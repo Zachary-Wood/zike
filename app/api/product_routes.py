@@ -76,8 +76,8 @@ def post_new_products():
             url = upload['url']
            
 
-        sizes = form.data["size"] 
-        sizes_str = json.dumps(sizes) # change the size to '[]' instead of []
+        
+       
         
         product_form_items = { # payload for the new product
             "owner_id": current_user.id,
@@ -86,10 +86,11 @@ def post_new_products():
             "price": form.data["price"],
             "description": form.data["description"],
             "gender": form.data["gender"],
-            "size": sizes_str,
+            "size": form.data["size"],
             "clothing_type": form.data["clothing_type"],
             "product_image": url
         }
+        print(product_form_items)
         new_product = Product(**product_form_items) # spread the payload into a new product variable
         db.session.add(new_product) # add to db 
         db.session.commit() # commit the db
@@ -147,7 +148,7 @@ def update_product(id):
 
 @login_required
 @product_routes.route("/<int:id>", methods=["DELETE"])
-def delete_product():
+def delete_product(id):
     indv_product = Product.query.get(id) # we grab the id from the url 
 
     if not indv_product:  # if no product return 404 

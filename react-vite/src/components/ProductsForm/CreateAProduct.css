@@ -1,0 +1,144 @@
+.button-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    width: 30%;
+    margin: 0 auto;
+    height: 30%;
+}
+
+.add-your-product {
+    font-size: 55px;
+}
+
+.select-all {
+    display: flex;
+    align-items: center;
+}
+
+.button-box * label {
+    font-size: 16px;
+    color: #333;
+    padding-left: 10px;
+    font-weight: 500;
+
+}
+
+.boxes {
+    display: flex;
+    align-items: center;
+}
+
+
+.checkbox-container:hover {
+    background-color: #f1f1f1;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #1aea32;
+    color: #ccc;
+}
+
+.create-new-prod-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-your-product {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+
+.products-inputs-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+
+.input-con {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.product-description {
+    height: 200px;
+    padding-bottom: 150px;
+}
+
+.input-con input {
+    width: 375px;
+    border-radius: 15px;
+    padding-left: 5px;
+    border: 2px solid lightgray; 
+}
+
+.input-con input:focus {
+    outline: none;
+    border-color: darkgray; 
+}
+
+.inputs {
+    height: 40px;
+}
+
+.input-con-gender {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-con-gender select {
+    width: 375px;
+    height: 40px;
+    border-radius: 15px;
+    border: 2px solid lightgray; 
+}
+
+.clothing-con {
+    width: 375px;
+    height: 40px;
+    border-radius: 15px;
+    border: 2px solid lightgray; 
+}
+
+.product-submit-btn {
+    width: 250px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    
+}
+
+.btn-con-prod {
+    padding-bottom: 250px;
+    padding-top: 50px;
+}
+
+.product-submit-btn:disabled:hover {
+    cursor: not-allowed;
+}
+
+
+
+.form-errors {
+    color: red;
+    font-size: 12px;
+}
+
+

@@ -4,7 +4,7 @@ import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import LandingPage from '../components/Landing Page/LandingPage';
 import ProductDetails from '../components/ProductDetails/ProductDetails';
-import CreateNewProduct from '../components/CreateNewProduct/CreateNewProduct';
+import CreateNewProduct from '../components/ProductsForm/CreateNewProduct';
 
 export const router = createBrowserRouter([
   {

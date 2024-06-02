@@ -3,6 +3,8 @@ import {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from "react-redux"
 import { useNavigate } from "react-router-dom"
 import './CreateAProduct.css'
+import { createAProductThunk } from '../../redux/products'
+import LoadingModal from '../Loading/Loading'
 
 
 
@@ -33,6 +35,22 @@ const CreateNewProduct = () => {
   
   }, [navigate,currentUser])
 
+  useEffect(() => {
+    const errorsObj = {}
+
+    if (name.length < 3 || name.length > 50) errorsObj.name = 'Please provide a valid name between 3 and 50 characters'
+    if (!type) errorsObj.type = 'Please select a product type'
+    if (price < 1 || price > 500) errorsObj.price = 'Price must be between 1 and 500'
+    if(description.length < 10 || description.length > 255) errorsObj.description = 'Please provide a valid description between 10 and 255 characters'
+    if (!gender) errorsObj.gender = "Please fill out the gender"
+    if (!selectedSizes) errorsObj.selectedSizes = "Please fill out all wanted sizes"
+    if (!clothing_type) errorsObj.clothing_type = "Please fill out products clothing type"
+    if (!product_image) errorsObj.product_image = "Please provide an image"
+
+    setErrors(errorsObj)
+
+  }, [name, type, price, description, gender, selectedSizes, clothing_type, product_image])
+
 
   const sizes = [
     { label: '6', value: '6' },
@@ -53,7 +71,7 @@ const CreateNewProduct = () => {
     { label: '14', value: '14' }
   ];
 
-  console.log(selectedSizes)
+  
 
   const handleSelectAllChange = (event) => {
     const checked = event.target.checked;
@@ -69,31 +87,50 @@ const CreateNewProduct = () => {
         : [...prevSelectedSizes, value]
     );
   };
-
+  const sizeString = selectedSizes.join(', ')
+  console.log(sizeString)
   
 
   const handleSubmit = async (e) => {
         e.preventDefault()
+        setImageLoading(true);
+
+
 
         const formData = new FormData();
-        formData.append("image", product_image);
-        // aws uploads can be a bit slow—displaying
-        // some sort of loading message is a good idea
-        setImageLoading(true);
-        await dispatch();
-        history.push("/images");
-  }
+        formData.append("name", name)
+        formData.append("type", type)
+        formData.append("price", price)
+        formData.append("description", description)
+        formData.append("gender", gender)
+        formData.append("size", sizeString)
+        formData.append("clothing_type", clothing_type)
+        formData.append("product_image", product_image);
+
+
+        
+        try {
+          const newProduct = await dispatch(createAProductThunk(formData));
+          navigate(`/products/${newProduct.id}`);
+        } catch (error) {
+          console.error('Failed to create product', error);
+        } finally {
+          setImageLoading(false);
+        }
+      };
+       
   
   
   
-    return (
+return (
     <div className="create-new-prod-con">
-        <h1>Add your product</h1>
+        <h1 className='add-your-product'>Add your product</h1>
 
         <form className="add-product-form" onSubmit={handleSubmit} encType="multipart/form-data">
 
         <div className="products-inputs-con">
         <label>
+        <div className='input-con'>
                 Product Name
                 <input
                 type="text"
@@ -101,21 +138,36 @@ const CreateNewProduct = () => {
                 placeholder='Product name'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                className='inputs'
                 />
+                </div>
         </label>
+        {errors.name && <p className='form-errors'>{errors.name}</p>}
 
         <label>
-                Product Type
-                <input
+        <div className='input-con'>
+                Type
+                <select
                 type="select-field"
-                name="type" 
-                placeholder='Product type'
+                name="Clothing Type" 
+                placeholder='Products clothing type'
                 value={type}
                 onChange={(e) => setType(e.target.value)}
-                />
+                className='clothing-con'
+                >
+                <option value="Shoes">Shoes</option>
+                <option value="Lifestyle Shoe">Lifestyle Shoe</option>
+                <option value="Men's Trail Running Shoes">Men&apos;s Trail Running Shoes Size</option>
+                <option value="Basketball Shoe">Basketball Shoe</option>
+                <option value="Running Shoe">Running Shoe</option>
+                <option value="Golf Shoe">Golf Shoe</option>
+                </select>
+                </div>
         </label>
+        {errors.type && <p className='form-errors'>{errors.type}</p>}
 
         <label>
+        <div className='input-con'>
                 Product Price
                 <input
                 type="number"
@@ -123,10 +175,14 @@ const CreateNewProduct = () => {
                 placeholder='Product price'
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+                className='inputs'
                 />
+                </div>
         </label>
+        {errors.price && <p className='form-errors'>{errors.price}</p>}
 
         <label>
+        <div className='input-con'>
                 Product Description
                 <input
                 type="text-area"
@@ -134,10 +190,14 @@ const CreateNewProduct = () => {
                 placeholder='Product description'
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                className='product-description'
                 />
+                </div>
         </label>
+        {errors.description && <p className='form-errors'>{errors.description}</p>}
 
         <label>
+        <div className='input-con-gender'>
                 Gender
                 <select
                 type="select-field"
@@ -149,10 +209,12 @@ const CreateNewProduct = () => {
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 </select>
+        </div>
         </label>
+        {errors.gender && <p className='form-errors'>{errors.gender}</p>}
 
         <div className='button-box'>
-        <div>
+        <div className='select-all'>
         <input
           type="checkbox"
           id="selectAll"
@@ -175,9 +237,12 @@ const CreateNewProduct = () => {
       ))}
       </div>
 
+      {errors.size && <p className='form-errors'>{errors.size}</p>}
+
        
 
         <label>
+        <div className='input-con'>
                 Clothing Type
                 <select
                 type="select-field"
@@ -185,15 +250,16 @@ const CreateNewProduct = () => {
                 placeholder='Products clothing type'
                 value={clothing_type}
                 onChange={(e) => setClothing_type(e.target.value)}
+                className='clothing-con'
                 >
                 <option value="Shoes">Shoes</option>
-                <option value="Lifestyle Shoe">Lifestyle Shoe</option>
-                <option value="Men's Trail Running Shoes">Men&apos;s Trail Running Shoes Size</option>
-                <option value="Basketball Shoe">Basketball Shoe</option>
-                <option value="Running Shoe">Running Shoe</option>
-                <option value="Golf Shoe">Golf Shoe</option>
+                <option value="Sportswear">Sportswear</option>
+                <option value="Shorts">Shorts</option>
+                <option value="T-Shirts">T-Shirts</option>
                 </select>
+                </div>
         </label>
+        {errors.clothing_type && <p className='form-errors'>{errors.clothing_type}</p>}
         
         <label>
             <p>Accepted formats: PDF, PNG, JPG, JPEG, GIF</p>
@@ -205,10 +271,13 @@ const CreateNewProduct = () => {
               />
 
         </label>
+        {errors.product_image && <p className='form-errors'>{errors.product_image}</p>}
 
-        
-        <button type="submit">Submit</button>
+        <div className='btn-con-prod'>
+        <button className='product-submit-btn' type="submit" disabled={Object.values(errors).length > 0}>Submit</button>
             {(imageLoading)&& <p>Loading...</p>}
+
+        </div>
 
     </div>
     

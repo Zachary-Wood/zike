@@ -15,7 +15,7 @@ class Product(db.Model):
     price = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(255), nullable=False)
     gender = db.Column(db.String(25), nullable=False)
-    size = db.Column(db.String, nullable=True)
+    size = db.Column(db.String(255))
     clothing_type = db.Column(db.String(25), nullable=False)
     product_image = db.Column(db.String(255))
     created_at = db.Column(db.DateTime, default=datetime.now)
