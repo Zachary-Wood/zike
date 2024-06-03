@@ -1,0 +1,73 @@
+.delete-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.delete-modal
+.modal-container {
+    background-color: rgb(233, 227, 227);
+    border-radius: 12px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    height: 400px;
+    width: 100%;
+}
+
+
+
+.modal-container h1 {
+    margin-bottom: 10px;
+}
+
+.modal-container p {
+    margin-bottom: 20px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.delete-button:hover,
+.cancel-button:hover {
+    transform: scale(1.05);
+}
+
+.d-bttn:hover {
+    cursor: pointer;
+}
+
+.d-bttn {
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    border: none;
+
+}
+
+.c-bttn {
+
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+    
+    
+}

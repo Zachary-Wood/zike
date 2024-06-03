@@ -17,13 +17,13 @@ zach_final = datetime.strptime(zach_date, '%B %d, %Y').date()
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        firstname='bot', lastname='bot', username='Demo', email='demo@gmail.com', birthday=demo_final, password='password')
+        firstname='Jeff', lastname='bot', username='Demo', email='demo@gmail.com', birthday=demo_final, password='password')
     marnie = User(
-        firstname='marnie', lastname='flowers', username='marnie', email='marnie@gmail.com', birthday=marnie_final, password='password')
+        firstname='Marnie', lastname='flowers', username='marnie', email='marnie@gmail.com', birthday=marnie_final, password='password')
     bobbie = User(
-        firstname='bobbie', lastname='stomski', username='bobbie', email='bobbie@gmail.com', birthday=bobbie_final, password='password')
+        firstname='Bobbie', lastname='stomski', username='bobbie', email='bobbie@gmail.com', birthday=bobbie_final, password='password')
     zach = User(
-        firstname='zach', lastname='wood', username='zavvn', email='zavvn@gmail.com', birthday=zach_final, password='zavvn101')
+        firstname='Zach', lastname='wood', username='zavvn', email='zavvn@gmail.com', birthday=zach_final, password='zavvn101')
     
 
     

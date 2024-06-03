@@ -39,7 +39,7 @@ const LandingPage = () => {
     <div className="under-image-text-con">
 
         <h1 className="tatis-header"> A STAR ALWAYS SHINES </h1>
-        <p>San Diego Padres star Fernando Tatis Jr style is built for the bright lights on and off the feild</p>
+        <p className="tatis-text">San Diego Padres star Fernando Tatis Jr style is built for the bright lights on and off the feild</p>
         <NavLink to={`/products/${randProduct}`}>
         <button className="shop-tatis-button">Shop now</button>
         </NavLink>

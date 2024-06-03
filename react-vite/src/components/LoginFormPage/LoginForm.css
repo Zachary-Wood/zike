@@ -1,0 +1,111 @@
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    width: 310px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: white;
+    overflow: hidden;
+}
+
+#modal-content {
+    background-color: transparent;
+}
+
+.login-in-h1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.login-inputs-con {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.label-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 7.5px;
+}
+
+.login-input {
+    height: 40px;
+    border-radius: 4px;
+    border: 2px solid rgb(176, 173, 173);
+    padding: 5px
+
+}
+
+.login-btn-main {
+    height: 50px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%
+}
+
+.login-btn-main:disabled:hover {
+    cursor: not-allowed;
+}
+
+.login-btn-demo{
+    height: 50px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%
+}
+.login-btn-con-main {
+    padding-top: 25px;
+}
+
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+}
+
+.separator::before {
+    margin-right: 10px;
+}
+
+.separator::after {
+    margin-left: 10px;
+}
+
+.separator span {
+    padding: 0 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.signin-nike {
+    display: flex;
+    align-items: center;
+    gap: 90px;
+}
+
+.form-errors-login {
+    font-size: 12px;
+    color: red;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+}
+

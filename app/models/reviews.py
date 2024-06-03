@@ -21,6 +21,8 @@ class Review(db.Model):
 
 
     def to_dict(self):
+
+
         return {
             'id': self.id,
             'user_id': self.user_id,
@@ -28,6 +30,6 @@ class Review(db.Model):
             'product_id': self.product_id,
             'review': self.review,
             'rating': self.rating,
-            'created_at': self.created_at,
+            "created_at": str(self.created_at.strftime("%d-%m-%Y")),
             'updated_at': self.updated_at
         }

@@ -23,10 +23,11 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 35%;
 }
 
 .nike-random {
-    color: rgb(233, 159, 20);
+    color: rgb(255, 102, 0);
 }
 
 .product-det-price {
@@ -48,6 +49,7 @@
     gap: 5px;
     width: 450px;
     padding-top: 25px;
+    padding-bottom: 50px;
 
 }
 
@@ -93,7 +95,7 @@ li {
     list-style-type: none;
 }
 
-.update-restaurant-link {
+.update-product-link {
     text-decoration: none;
     width: 250px;
     height: 50px;
@@ -109,4 +111,101 @@ li {
     display: flex;
     gap: 20px;
     padding-top: 30px;
+    
+}
+
+.reviews-container {
+    display: flex;
+    border: 2px solid grey;
+    flex-direction: column;
+    gap: 30px;
+    width: 25%;
+    position: absolute;
+    right: 18%;
+    height: 50%;
+    padding: 20px;
+    border-radius: 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.review-text-con {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.star-con {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.star-con p {
+    padding-right: 5px;
+}
+
+.review-star {
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    padding-bottom: 3px;
+    color: rgb(255, 102, 0);
+}
+
+.name-created {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.review-firstname {
+    font-weight: 600;
+}
+
+.review-text {
+    padding-top: 5px;
+    word-wrap: break-word; 
+    word-break: break-word; 
+    white-space: normal; 
+}
+
+.review-btns-con {
+    display: flex;
+    gap: 15px;
+    padding-top: 10px;
+}
+
+.update-review {
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    width: 150px;
+    height: 30px;
+    padding: 3px;
+    border: none;
+}
+
+.delete-review {
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    width: 150px;
+    height: 30px;
+    padding: 3px;
+    border: none;
+}
+
+.leave-a-review {
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    width: 150px;
+    height: 30px;
+    padding: 3px;
+    border: none;
+}
+
+.review-date {
+    padding-left: 15px;
 }

@@ -38,12 +38,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    padding-bottom: 100px;
+    gap: 10px;
+    padding-bottom: 50px;
+
 }
 
 .tatis-header {
-    font-size: 65px;
+    font-size: 100px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+}
+
+.tatis-text {
+    padding-bottom: 20px;
 }
 
 .shop-tatis-button {
@@ -54,6 +63,13 @@
     border-radius: 15px;
     border: none;
     cursor: pointer;
+    transition: transform 0.3s; 
+
+}
+
+.shop-tatis-button:hover {
+    background-color: rgb(255, 102, 0);
+    transform: scale(1.09); 
 }
 
 .products-con {

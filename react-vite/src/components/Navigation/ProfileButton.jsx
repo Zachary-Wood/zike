@@ -55,10 +55,10 @@ function ProfileButton() {
               alt="Nike Logo" 
               className="login-logo"
               />
-              <li className='username'>Hello {user.username}!</li>
+              <li className='username'>Hello {user.firstname}!</li>
               <li className='email'>{user.email}</li>
-              <NavLink to='/products/new'
-              onClick={toggleMenu}
+              <NavLink className='create-a-product' to='/products/new'
+                onClick={toggleMenu}
               >
               Add new product
               </NavLink>

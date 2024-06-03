@@ -110,7 +110,7 @@
   right: 50px;
   top: 95px;
   width: 210px;
-  height: 250px;
+  height: 320px;
   padding: 0px;
   z-index: 2;
 }
@@ -164,6 +164,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 15px;
   padding-top: 10px;
 }
 
@@ -186,7 +187,15 @@
 }
 
 .btn-padding {
-  padding-top: 20px;
+  padding-top: 15px;
+}
+
+.create-a-product {
+  color: rgb(255, 102, 0);
+  text-decoration: none;
+  padding-top: 15px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 

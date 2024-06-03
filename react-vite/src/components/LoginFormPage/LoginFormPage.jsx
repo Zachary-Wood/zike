@@ -33,10 +33,12 @@ function LoginFormPage() {
 
   return (
     <>
-      <h1>Log In</h1>
+    <div className="modal-con">
+      <h1 className="login-in-h1">Log In</h1>
       {errors.length > 0 &&
         errors.map((message) => <p key={message}>{message}</p>)}
       <form onSubmit={handleSubmit}>
+        <div className="login-inputs-con"> 
         <label>
           Email
           <input
@@ -58,7 +60,9 @@ function LoginFormPage() {
         </label>
         {errors.password && <p>{errors.password}</p>}
         <button type="submit">Log In</button>
+        </div>
       </form>
+      </div>
     </>
   );
 }
