@@ -41,7 +41,7 @@ const UpdateAProduct = () => {
     if(!currentUser) navigate("/")
   
   }, [navigate,currentUser])
-
+  // for run build
   
   const sizeString = selectedSizes.join(', ')
   console.log('size',sizeString.length)
