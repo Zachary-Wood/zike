@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import "./ProductDetails.css"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import {loadProductsThunk } from "../../redux/products"
+import {loadProductByIdThunk, loadProductsThunk } from "../../redux/products"
 import DeleteAProduct from "../ProductsForm/DeleteAProduct"
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import { NavLink } from "react-router-dom"
@@ -27,8 +27,10 @@ const ProductDetails = () => {
   
   useEffect(() => {
     dispatch(loadProductsThunk())
+    dispatch(loadProductByIdThunk(productId))
+    window.scrollTo(0, 0);
   
-},[dispatch])
+},[dispatch, productId])
   
   
   

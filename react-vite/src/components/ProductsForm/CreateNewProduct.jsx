@@ -126,6 +126,7 @@ return (
     <div className="create-new-prod-con">
        {imageLoading && <LoadingModal />}
         <h1 className='add-your-product'>Add your product</h1>
+        <p className='enter-all'>Enter all the info for your product!</p>
 
         <form className="add-product-form" onSubmit={handleSubmit} encType="multipart/form-data">
 
@@ -156,6 +157,7 @@ return (
                 onChange={(e) => setType(e.target.value)}
                 className='clothing-con'
                 >
+                <option value="" disabled>Select Type</option>
                 <option value="Shoes">Shoes</option>
                 <option value="Lifestyle Shoe">Lifestyle Shoe</option>
                 <option value="Trail Running Shoes">Trail Running Shoes Size</option>
@@ -207,6 +209,7 @@ return (
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
                 >
+                <option value="" disabled>Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 </select>
@@ -253,6 +256,7 @@ return (
                 onChange={(e) => setClothing_type(e.target.value)}
                 className='clothing-con'
                 >
+                <option value="" disabled>Select Clothing Type</option>
                 <option value="Shoes">Shoes</option>
                 <option value="Sportswear">Sportswear</option>
                 <option value="Shorts">Shorts</option>
