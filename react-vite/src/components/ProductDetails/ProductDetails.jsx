@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux"
 import {loadProductsThunk } from "../../redux/products"
 import DeleteAProduct from "../ProductsForm/DeleteAProduct"
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import { NavLink } from "react-router-dom"
+
 
 
 
@@ -69,11 +71,19 @@ const ProductDetails = () => {
     
     </div>
 
+    <div className="buttons-con">
+    {currentUser && currentUser?.id === selectedProduct?.owner_id && (
+      <>
+      <h1>Hi {currentUser?.firstname} you own this product</h1>
+      <p>Please make any edits down below!</p>
+      </>
+    )}
+    <div className="inner-buttons-con">
     {currentUser && currentUser?.id === selectedProduct?.owner_id && (
      
           
                     <OpenModalMenuItem
-                      itemText={<button>Delete this product</button>}
+                      itemText={<button className="delete-btn">Delete this product</button>}
                       className={'delete-btn'}
                       modalComponent={
                         <DeleteAProduct
@@ -85,9 +95,21 @@ const ProductDetails = () => {
                   )}
 
 
+    {currentUser?.id === selectedProduct?.owner_id && (
+           
+           <NavLink
+             to={`/products/${selectedProduct?.id}/update`}
+             className={'update-restaurant-link'}
+           >
+             Update Your Product
+           </NavLink>
 
-    </div>
-  )
+  )}
+  </div>
+
+  </div>
+</div>
+)
 }
 
 

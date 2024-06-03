@@ -65,5 +65,48 @@
 
 .shoe-size-button:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional: add a focus shadow */
-  }
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.buttons-con {
+    display: flex;
+    padding-left: 26%;
+    padding-top: 100px;
+    padding-bottom: 350px;
+    gap: 15px;
+    flex-direction: column;
+
+}
+
+.delete-btn {
+    text-decoration: none;
+    width: 250px;
+    height: 50px;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.update-restaurant-link {
+    text-decoration: none;
+    width: 250px;
+    height: 50px;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-buttons-con {
+    display: flex;
+    gap: 20px;
+    padding-top: 30px;
+}
