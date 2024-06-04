@@ -37,7 +37,7 @@ def upgrade():
     sa.Column('price', sa.Integer(), nullable=False),
     sa.Column('description', sa.String(length=255), nullable=False),
     sa.Column('gender', sa.String(length=25), nullable=False),
-    sa.Column('size', sa.Integer(), nullable=False),
+    sa.Column('size', sa.String(), nullable=False),
     sa.Column('clothing_type', sa.String(length=25), nullable=False),
     sa.Column('product_image', sa.String(length=255), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
