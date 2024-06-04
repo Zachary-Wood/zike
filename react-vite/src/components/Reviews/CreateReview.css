@@ -61,6 +61,7 @@
     border-radius: 15px;
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 .created-review:hover {
     transform: scale(1.05);

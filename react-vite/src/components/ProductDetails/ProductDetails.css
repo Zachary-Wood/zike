@@ -201,6 +201,7 @@ li {
     height: 30px;
     padding: 3px;
     border: none;
+    cursor: pointer;
 }
 
 .delete-review {
@@ -211,6 +212,7 @@ li {
     height: 30px;
     padding: 3px;
     border: none;
+    cursor: pointer;
 }
 
 .leave-a-review {

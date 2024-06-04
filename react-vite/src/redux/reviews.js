@@ -131,12 +131,12 @@ function reviewReducer(state = {}, action){
             newState[action.payload.id] = action.payload;
             return newState;
         }
-        case UPDATE_REVIEW: {
-            return {
-                ...state,
-                [action.payload.review.id]: action.review
-              };
-        }
+        // case UPDATE_REVIEW: {
+        //     return {
+        //         ...state,
+        //         [action.payload.review.id]: action.review
+        //       };
+        // }
         case DELETE_REVIEW: {
             const newState = {...state}
             delete newState[action.payload]
