@@ -38,11 +38,20 @@ const ProductDetails = () => {
   const nikeSayings = ['Member Product', 'Just In', 'Going Fast', 'Available', 'Best Seller']
   
   useEffect(() => {
-    dispatch(loadProductsThunk())
-    dispatch(loadProductByIdThunk(productId))
-    window.scrollTo(0, 0);
-  
-},[dispatch, productId])
+    const fetchData = async () => {
+        try {
+            await dispatch(loadProductsThunk());
+            await dispatch(loadProductByIdThunk(productId));
+            window.scrollTo(0, 0);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            
+        }
+    };
+
+    fetchData();  
+
+}, [dispatch, productId]);
   
   
   

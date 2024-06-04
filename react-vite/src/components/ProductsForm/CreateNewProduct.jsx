@@ -109,6 +109,14 @@ const CreateNewProduct = () => {
         setImageLoading(true);
 
 
+        await new Promise(resolve => {
+          const intervalId = setInterval(() => {
+              if (product_image !== '') {
+                  clearInterval(intervalId);
+                  resolve();
+              }
+          }, 100); 
+      });
         const formData = new FormData();
 
         console.log('prod',product_image);
