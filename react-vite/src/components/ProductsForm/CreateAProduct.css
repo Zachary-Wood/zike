@@ -72,12 +72,27 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 5px;
+    gap: 10px;
 }
 
 .product-description {
     height: 200px;
     padding-bottom: 150px;
+    overflow-x: hidden;
+    overflow-y: auto; 
+    overflow-wrap: break-word;
+    word-wrap: break-word; 
+    word-break: break-word; 
+    resize: none; 
+    border: 1px solid #ccc; 
+    border-radius: 12px;
+    padding: 10px; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.prod-desc {
+    padding-bottom: 5px;
 }
 
 .input-con input {
@@ -142,7 +157,7 @@ input[type="checkbox"] {
 }
 
 .enter-all {
-    padding-bottom: 25px;
+    padding-bottom: 50px;
 }
 
 

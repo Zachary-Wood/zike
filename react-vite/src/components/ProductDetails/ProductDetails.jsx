@@ -25,6 +25,9 @@ const ProductDetails = () => {
 
   console.log(selectedProduct);
 
+  const sizesArray = selectedProduct?.size.split(', ')
+  console.log('sizes', sizesArray)
+
   let hasReviewed = [];
   selectedProduct?.reviews?.forEach((review) => {
     hasReviewed.push(review.user_id);
@@ -61,24 +64,13 @@ const ProductDetails = () => {
         <p>{selectedProduct?.description}</p>
 
 
-        <div className="product-size-con">
-        <p className="product-select-size">Select Size</p>
         <div className="button-sizes-con">
-        <button className="shoe-size-button">{selectedProduct?.size}</button>
-        <button className="shoe-size-button">{selectedProduct?.size}</button>
-        <button className="shoe-size-button">{selectedProduct?.size}</button>
-        <button className="shoe-size-button">{selectedProduct?.size}</button>
-        <button className="shoe-size-button">{selectedProduct?.size}</button>
-        <button className="shoe-size-button">{selectedProduct?.size}</button>
-        <button className="shoe-size-button">{selectedProduct?.size}</button>
-        <button className="shoe-size-button">{selectedProduct?.size}</button>
-        <button className="shoe-size-button">{selectedProduct?.size}</button>
-        <button className="shoe-size-button">{selectedProduct?.size}</button>
-        </div>
+      {sizesArray.map((size, index) => (
+        <button key={index} className="shoe-size-button">{size}</button>
+      ))}
+    </div>
 
-        </div>
-
-         
+    <button className="add-to-cart" onClick={() => alert('Feature Coming Soon')}>Add to cart</button>
     </div>
     
     </div>

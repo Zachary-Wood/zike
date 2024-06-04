@@ -184,20 +184,19 @@ return (
         </label>
         {errors.price && <p className='form-errors'>{errors.price}</p>}
 
-        <label>
         <div className='input-con'>
-                Product Description
-                <input
-                type="text-area"
-                name="description" 
-                placeholder='Product description'
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                className='product-description'
-                />
-                </div>
-        </label>
-        {errors.description && <p className='form-errors'>{errors.description}</p>}
+    <label className='prod-desc'>
+        Product Description
+        <textarea
+            name="description"
+            placeholder='Product description'
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className='product-description'
+        />
+    </label>
+    {errors.description && <p className='form-errors'>{errors.description}</p>}
+</div>
 
         <label>
         <div className='input-con-gender'>

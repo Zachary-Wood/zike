@@ -18,7 +18,8 @@
     justify-content: center;
     height: 600px;
     width: 600px;
-    background-color: rgb(233, 227, 227);
+    background-color: white;
+    border-radius: 12px;
     
 
 }
@@ -30,6 +31,8 @@
     padding: 10px;
     border-radius: 15px;
     background-color: white;
+    /* overflow-x: hidden;
+    overflow-wrap: break-word */
 
 }
 
