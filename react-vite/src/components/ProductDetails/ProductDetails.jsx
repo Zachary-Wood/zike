@@ -25,8 +25,8 @@ const ProductDetails = () => {
 
   console.log(selectedProduct);
 
-  const sizesArray = selectedProduct?.size.split(', ')
-  console.log('sizes', sizesArray)
+  const sizesArray = selectedProduct?.size ? selectedProduct.size.split(', ') : [];
+
 
   let hasReviewed = [];
   selectedProduct?.reviews?.forEach((review) => {
@@ -65,7 +65,7 @@ const ProductDetails = () => {
 
 
         <div className="button-sizes-con">
-      {sizesArray.map((size, index) => (
+      {sizesArray && sizesArray.map((size, index) => (
         <button key={index} className="shoe-size-button">{size}</button>
       ))}
     </div>

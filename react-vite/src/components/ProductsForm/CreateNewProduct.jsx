@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from "react-redux"
 import { useNavigate } from "react-router-dom"
 import './CreateAProduct.css'
-import { createAProductThunk } from '../../redux/products'
+import { createAProductThunk} from '../../redux/products'
 import LoadingModal from '../Loading/Loading'
 
 
@@ -88,9 +88,7 @@ const CreateNewProduct = () => {
     );
   };
   const sizeString = selectedSizes.join(', ')
-  console.log(sizeString)
   
-
   const handleSubmit = async (e) => {
         e.preventDefault()
         setImageLoading(true);
@@ -108,6 +106,7 @@ const CreateNewProduct = () => {
         formData.append("product_image", product_image);
 
 
+        
         
         try {
           const newProduct = await dispatch(createAProductThunk(formData));
