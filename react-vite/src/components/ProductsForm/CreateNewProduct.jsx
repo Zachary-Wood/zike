@@ -134,11 +134,10 @@ const CreateNewProduct = () => {
           if (newProduct) {
             navigate(`/products/${newProduct.id}`);
           }
+          setImageLoading(false);
         } catch (error) {
           console.error('Failed to create product', error);
-        } finally {
-          setImageLoading(false);
-        }
+        } 
       };
        
   

@@ -69,7 +69,7 @@ def post_new_products():
         if image: # if there is an image we upload it to our s3 bucket and we make the url the url in the s3 bucket
             image.filename = get_unique_filename(image.filename)
             upload = upload_file_to_s3(image)
-
+            print('upload', upload)
             if "url" not in upload:
                 return jsonify({"message": "Your image could not be uploaded"}), 500
 
