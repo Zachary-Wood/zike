@@ -119,7 +119,7 @@ const CreateNewProduct = () => {
       });
         const formData = new FormData();
 
-        console.log('prod',product_image);
+        console.log('prod',product_image, name, type, price, description, gender, sizeString, clothing_type);
         formData.append("name", name)
         formData.append("type", type)
         formData.append("price", price)
