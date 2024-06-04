@@ -206,7 +206,7 @@ return (
                 onChange={(e) => setType(e.target.value)}
                 className='clothing-con'
                 >
-                <option value="Shoes">Shoes</option>
+                <option value="Slides">Slides</option>
                 <option value="Lifestyle Shoe">Lifestyle Shoe</option>
                 <option value="Trail Running Shoes">Trail Running Shoes Size</option>
                 <option value="Basketball Shoe">Basketball Shoe</option>

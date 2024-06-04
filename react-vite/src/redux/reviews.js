@@ -134,7 +134,7 @@ function reviewReducer(state = {}, action){
         case UPDATE_REVIEW: {
             return {
                 ...state,
-                [action.review.id]: action.review
+                [action.payload.review.id]: action.review
               };
         }
         case DELETE_REVIEW: {

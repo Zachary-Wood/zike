@@ -94,9 +94,10 @@ def post_new_products():
         new_product = Product(**product_form_items) # spread the payload into a new product variable
         db.session.add(new_product) # add to db 
         db.session.commit() # commit the db
-        return jsonify(new_product.to_dict()), 201 # we return the new product data for the front end
+        return new_product.to_dict(), 201 # we return the new product data for the front end
 
     return jsonify(form.errors), 400
+
 
 
 @login_required

@@ -1,12 +1,13 @@
 .delete-form-container {
+    background-color: rgb(233, 227, 227);
+    border-radius: 12px;
+    padding: 35px;
     display: flex;
     flex-direction: column;
-    width: 650px;
-    height: 350px;
     align-items: center;
-    background-color: #ede8f5;
-    border-radius: 12px;
-    padding: 25px;
+    justify-content: center;
+    max-width: 500px;
+    height: 400px;
 }
 .delete-form-container {
     display: flex;
@@ -14,19 +15,14 @@
     align-items: center;
 }
 .delete-warning {
+    margin-bottom: 10px;
     text-align: center;
-
 }
-
 .warning-message  {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-}
-
-.warning {
     text-align: center;
 }
 
@@ -36,33 +32,34 @@
     font-size: larger;
     color: red;
     text-align: center;
+    padding-bottom: 15px;
 }
 
 .button-delete-con {
     display: flex;
     gap: 15px;
+    padding-top: 30px;
 }
 
 .no-btn-del {
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
     background-color: black;
-    width: 200px;
-    height: 55px;
     color: white;
-    border-radius: 12px;
+    border: none;
+    cursor: pointer;
 }
 
 .yes-btn-delete {
-    background-color: #af0909;
-    width: 200px;
-    height: 55px;
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: black;
     color: white;
-    border-radius: 12px;
-
-}
-
-.yes-btn-delete:hover {
+    border: none;
     cursor: pointer;
-    box-shadow: 0px 0px 15px red;
+
 }
 
 .no-btn-del:hover {

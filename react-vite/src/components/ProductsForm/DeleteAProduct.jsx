@@ -34,10 +34,15 @@ return (
     <div className="delete-your-menu-con">
         <form onSubmit={deleteYourProduct} className="delete-form-container">
         
-        <h2 className="delete-warning">Are you sure you want to remove this product?</h2>
+        <h1 className="delete-warning">Are you sure you want to remove this product?</h1>
+
+        <img 
+              src="/NikeLogo.png" 
+              alt="Nike Logo" 
+              className="login-logo"
+              />
 
         <div className="warning-message">
-            <p className="warning">{'ARE YOU SURE YOUR WANT TO DELETE THIS PRODUCT!'}</p>
             <p className="last-warning">{'(DELETED PRODUCTS CANNOT BE UNDONE)'}</p>
 
         </div>

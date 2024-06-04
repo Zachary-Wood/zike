@@ -31,18 +31,6 @@ const CreateNewProduct = () => {
   const currentUser = useSelector(state => state.session.user)
 
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setProduct_image(file);
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = () => {
-            setShowImage(reader.result)
-        };
-        reader.readAsDataURL(file);
-    }
-};
-
   useEffect(() => {
     if(!currentUser) navigate("/")
   
@@ -103,14 +91,27 @@ const CreateNewProduct = () => {
   };
   const sizeString = selectedSizes.join(', ')
  
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setProduct_image(file);  
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            setShowImage(reader.result);
+        };
+        reader.readAsDataURL(file);
+    }
+};
+
   
   const handleSubmit = async (e) => {
         e.preventDefault()
         setImageLoading(true);
 
 
-
         const formData = new FormData();
+
+        console.log('prod',product_image);
         formData.append("name", name)
         formData.append("type", type)
         formData.append("price", price)
@@ -120,6 +121,9 @@ const CreateNewProduct = () => {
         formData.append("clothing_type", clothing_type)
         formData.append("product_image", product_image);
 
+
+
+        console.log(formData)
 
 
 
@@ -176,7 +180,7 @@ return (
                 className='clothing-con'
                 >
                 <option value="" disabled>Select Type</option>
-                <option value="Shoes">Shoes</option>
+                <option value="Slides">Slides</option>
                 <option value="Lifestyle Shoe">Lifestyle Shoe</option>
                 <option value="Trail Running Shoes">Trail Running Shoes Size</option>
                 <option value="Basketball Shoe">Basketball Shoe</option>

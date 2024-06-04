@@ -65,10 +65,11 @@ export const loadProductByIdThunk = (productId) => async (dispatch) => {
 export const createAProductThunk = (product) => async (dispatch) => {
     const res = await fetch(`/api/products/new`, {
         method: "POST",
-        body: product
+        body: product,
     })
     
     const data = await res.json()
+    console.log('this is data', data)
 
     if (!res.ok) {
         return { errors: data };
@@ -128,7 +129,9 @@ function productReducer(state = {}, action){
         }
         case CREATE_PRODUCT: {
             const newState = { ...state };
+            console.log('payload', action.payload)
             newState[action.payload.id] = action.payload;
+            
             return newState;
         }
         case UPDATE_PRODUCT: {
