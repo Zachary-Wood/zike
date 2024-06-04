@@ -1,0 +1,38 @@
+.sign-up-modal-con {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 800px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.sign-up-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sign-up-h1 {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.label-container-sign-up {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 7.5px;
+}
+
+.button-on-signup {
+    padding-top: 25px;
+}
+
+.signin-nike-signup {
+    display: flex;
+    align-items: center;
+    gap: 170px;
+}
