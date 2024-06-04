@@ -71,7 +71,6 @@ input[type="checkbox"] {
 .input-con {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 10px;
 }
 
@@ -160,6 +159,29 @@ input[type="checkbox"] {
     padding-bottom: 50px;
 }
 
+.image-submit-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.file-con {
+    padding-top: 25px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.input-image {
+    padding-left: 60px;
+}
+
+.preview-image {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+
+}
 
 
 

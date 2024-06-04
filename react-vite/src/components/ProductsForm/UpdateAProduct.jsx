@@ -19,10 +19,11 @@ const UpdateAProduct = () => {
     const navigate = useNavigate()
 
     const singleProduct = useSelector(state => state.productReducer[productId])
-    console.log(singleProduct)
+    // console.log(singleProduct)
 
 
   const [imageLoading, setImageLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
   const [name, setName] = useState('')
   const [type, setType] = useState('')
   const [price, setPrice] = useState(0)
@@ -37,14 +38,18 @@ const UpdateAProduct = () => {
   
   const currentUser = useSelector(state => state.session.user)
 
+
   useEffect(() => {
     if(!currentUser) navigate("/")
   
   }, [navigate,currentUser])
   // for run build
+
+
+  
   
   const sizeString = selectedSizes.join(', ')
-  console.log('size',sizeString.length)
+  // console.log('size',sizeString.length)
   console.log(selectedSizes)
 
   useEffect(() => {
@@ -58,7 +63,7 @@ const UpdateAProduct = () => {
     if (!selectedSizes) errorsObj.selectedSizes = "Please fill out all wanted sizes"
     if (selectedSizes.length < 3) errorsObj.selectedSizes = 'Please provide at least 3 shoe sizes'
     if (!clothing_type) errorsObj.clothing_type = "Please fill out products clothing type"
-    if (!product_image && !showImage) errorsObj.product_image = "Please provide an image"
+    if (!product_image) errorsObj.product_image = "Please provide an updated image"
 
     setErrors(errorsObj)
 
@@ -118,9 +123,24 @@ const UpdateAProduct = () => {
     }
   },[singleProduct])
 
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setProduct_image(file);
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            setShowImage(reader.result)
+        };
+        reader.readAsDataURL(file);
+    }
+};
+
   const handleSubmit = async (e) => {
         e.preventDefault()
         setImageLoading(true);
+        setIsLoading(true)
+
 
 
 
@@ -134,6 +154,9 @@ const UpdateAProduct = () => {
         formData.append("clothing_type", clothing_type)
         formData.append("product_image", product_image);
 
+        
+
+        setIsLoading(false)
 
         
         try {
@@ -151,7 +174,7 @@ const UpdateAProduct = () => {
   
 return (
     <div className="create-new-prod-con">
-       {imageLoading && <LoadingModal />}
+       {imageLoading && isLoading && <LoadingModal />}
         <h1 className='add-your-product'>Update your product</h1>
 
         <form className="add-product-form" onSubmit={handleSubmit} encType="multipart/form-data">
@@ -290,15 +313,23 @@ return (
         {errors.clothing_type && <p className='form-errors'>{errors.clothing_type}</p>}
         
         <label>
-            <p>Accepted formats: PDF, PNG, JPG, JPEG, GIF</p>
-            Upload Image
+        <div className='image-submit-con'>
+            <p>Accepted formats: PDF, PNG, JPG, JPEG</p>
+            <div className='file-con'>
         <input
               type="file"
               accept="image/*"
-              onChange={(e) => setProduct_image(e.target.files[0])}
+              onChange={handleFileChange}
+              className='input-image'
+              id="post-image-input"
               />
-
+              </div>
+          </div>
         </label>
+
+        <div className="image-preview-div">
+                        {showImage && <img src={showImage} className='preview-image' alt="Preview" />}
+                    </div>
         {errors.product_image && <p className='form-errors'>{errors.product_image}</p>}
 
         <div className='btn-con-prod'>

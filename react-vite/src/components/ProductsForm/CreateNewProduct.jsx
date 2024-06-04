@@ -15,7 +15,7 @@ const CreateNewProduct = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-
+  const [showImage, setShowImage] = useState()
   const [imageLoading, setImageLoading] = useState(false);
   const [name, setName] = useState('')
   const [type, setType] = useState('')
@@ -29,6 +29,19 @@ const CreateNewProduct = () => {
   const [errors, setErrors] = useState({})
   
   const currentUser = useSelector(state => state.session.user)
+
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setProduct_image(file);
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            setShowImage(reader.result)
+        };
+        reader.readAsDataURL(file);
+    }
+};
 
   useEffect(() => {
     if(!currentUser) navigate("/")
@@ -44,6 +57,7 @@ const CreateNewProduct = () => {
     if(description.length < 10 || description.length > 255) errorsObj.description = 'Please provide a valid description between 10 and 255 characters'
     if (!gender) errorsObj.gender = "Please fill out the gender"
     if (!selectedSizes) errorsObj.selectedSizes = "Please fill out all wanted sizes"
+    if (selectedSizes.length < 3) errorsObj.selectedSizes = 'Please provide at least 3 shoe sizes'
     if (!clothing_type) errorsObj.clothing_type = "Please fill out products clothing type"
     if (!product_image) errorsObj.product_image = "Please provide an image"
 
@@ -88,6 +102,7 @@ const CreateNewProduct = () => {
     );
   };
   const sizeString = selectedSizes.join(', ')
+ 
   
   const handleSubmit = async (e) => {
         e.preventDefault()
@@ -106,11 +121,15 @@ const CreateNewProduct = () => {
         formData.append("product_image", product_image);
 
 
+
+
         
         
         try {
           const newProduct = await dispatch(createAProductThunk(formData));
-          navigate(`/products/${newProduct.id}`);
+          if (newProduct) {
+            navigate(`/products/${newProduct.id}`);
+          }
         } catch (error) {
           console.error('Failed to create product', error);
         } finally {
@@ -239,7 +258,7 @@ return (
       ))}
       </div>
 
-      {errors.size && <p className='form-errors'>{errors.size}</p>}
+      {errors.selectedSizes && <p className='form-errors'>{errors.selectedSizes}</p>}
 
        
 
@@ -265,15 +284,22 @@ return (
         {errors.clothing_type && <p className='form-errors'>{errors.clothing_type}</p>}
         
         <label>
-            <p>Accepted formats: PDF, PNG, JPG, JPEG, GIF</p>
-            Upload Image
+          <div className='image-submit-con'>
+            <p>Accepted formats: PDF, PNG, JPG, JPEG</p>
+            <div className='file-con'>
         <input
               type="file"
               accept="image/*"
-              onChange={(e) => setProduct_image(e.target.files[0])}
+              onChange={handleFileChange}
+              className='input-image'
               />
-
+              </div>
+          </div>
         </label>
+
+        <div className="image-preview-div">
+                        {showImage && <img src={showImage} className='preview-image' alt="Preview" />}
+                    </div>
         {errors.product_image && <p className='form-errors'>{errors.product_image}</p>}
 
         <div className='btn-con-prod'>
