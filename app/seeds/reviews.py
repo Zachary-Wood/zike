@@ -152,6 +152,151 @@ def seed_reviews():
             "review": "Love the stylish design and waterproof features of the Nike golf shoe. It keeps my feet dry and provides great support during swings.", 
             "rating": 5
         },
+        
+        {
+            "user_id": 2,
+            "product_id": 13,
+            "review": "Comfortable and stylish! Great support for running.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 3,
+            "product_id": 13,
+            "review": "Great for jogging, supportive and breathable.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 2,
+            "product_id": 14,
+            "review": "Comfortable and stylish! Great support for running.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 3,
+            "product_id": 14,
+            "review": "Great for jogging, supportive and breathable.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 2,
+            "product_id": 15,
+            "review": "Comfortable and stylish! Great support for running.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 3,
+            "product_id": 15,
+            "review": "Great for jogging, supportive and breathable.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 2,
+            "product_id": 16,
+            "review": "Comfortable and stylish! Great support for running.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 3,
+            "product_id": 16,
+            "review": "Great for jogging, supportive and breathable.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 2,
+            "product_id": 17,
+            "review": "Comfortable and stylish! Great support for running.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 3,
+            "product_id": 17,
+            "review": "Great for jogging, supportive and breathable.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 2,
+            "product_id": 18,
+            "review": "Comfortable and stylish! Great support for running.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 3,
+            "product_id": 18,
+            "review": "Great for jogging, supportive and breathable.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 2,
+            "product_id": 19,
+            "review": "Comfortable and stylish! Great support for running.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 3,
+            "product_id": 19,
+            "review": "Great for jogging, supportive and breathable.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 2,
+            "product_id": 20,
+            "review": "Comfortable and stylish! Great support for running.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 3,
+            "product_id": 20,
+            "review": "Great for jogging, supportive and breathable.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 2,
+            "product_id": 21,
+            "review": "Comfortable and stylish! Great support for running.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 3,
+            "product_id": 21,
+            "review": "Great for jogging, supportive and breathable.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 2,
+            "product_id": 22,
+            "review": "Comfortable and stylish! Great support for running.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 3,
+            "product_id": 22,
+            "review": "Great for jogging, supportive and breathable.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 2,
+            "product_id": 23,
+            "review": "Comfortable and stylish! Great support for running.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 3,
+            "product_id": 23,
+            "review": "Great for jogging, supportive and breathable.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 2,
+            "product_id": 24,
+            "review": "Comfortable and stylish! Great support for running.", 
+            "rating": 5
+        }, 
+        {
+            "user_id": 3,
+            "product_id": 24,
+            "review": "Great for jogging, supportive and breathable.", 
+            "rating": 5
+        }, 
     
     ]
     

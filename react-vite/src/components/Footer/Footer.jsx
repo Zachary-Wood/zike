@@ -20,14 +20,14 @@ const Footer = () => {
 
         <div className="linked-in-con">
         <FaLinkedin className="linked-in"/>
-        <NavLink to={'https://github.com/Zachary-Wood'} className={'linked-in-link'}>
+        <NavLink to={'https://www.linkedin.com/in/zach-wood-82a80b28b/'} className={'linked-in-link'}>
         LinkedIn
         </NavLink>
         </div>
 
         <div className="linked-in-con">
         <FaGithub className="linked-in"/>
-        <NavLink to={'https://www.linkedin.com/in/zach-wood-82a80b28b/'} className={'linked-in-link'}>
+        <NavLink to={'https://github.com/Zachary-Wood'} className={'linked-in-link'}>
         GitHub
         </NavLink>
         </div>
