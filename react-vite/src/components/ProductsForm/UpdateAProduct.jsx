@@ -63,7 +63,7 @@ const UpdateAProduct = () => {
     if (!selectedSizes) errorsObj.selectedSizes = "Please fill out all wanted sizes"
     if (selectedSizes.length < 3) errorsObj.selectedSizes = 'Please provide at least 3 shoe sizes'
     if (!clothing_type) errorsObj.clothing_type = "Please fill out products clothing type"
-
+    if (product_image && product_image.name && !product_image.name.endsWith('.png') && !product_image.name.endsWith('.jpg') && !product_image.name.endsWith('.jpeg'))  errorsObj.product_image = 'Uploaded file must end with .png, .jpg, .jpeg'
     setErrors(errorsObj)
 
   }, [name, type, price, description, gender, selectedSizes, clothing_type, product_image, sizeString, showImage])

@@ -64,10 +64,15 @@ export const UpdateAReview = ({ productId, review, reviewId }) => {
     navigate(`/products/${productId}`);
     closeModal();
   };
-  
+
   return (
     <div className="review-modal">
       <div className="container-review">
+      <img 
+              src="/NikeLogo.png" 
+              alt="Nike Logo" 
+              className="login-logo"
+              />
         <label>
           <textarea
             className="review-text-area"
