@@ -39,7 +39,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
 
 }
 
@@ -133,6 +133,14 @@
 
 .product-price {
     font-weight: 600;
+}
+
+
+.shop-favorite {
+    padding-left: 65px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 50px;
+    padding-top: 75px;
 }
 
 

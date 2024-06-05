@@ -99,52 +99,42 @@ def post_new_products():
     return jsonify(form.errors), 400
 
 
-
 @login_required
 @product_routes.route("/<int:id>", methods=["PUT"])
 def update_product(id):
-
-    indv_product = Product.query.get(id) # get a product by its id to update 
-    form = EditProductForm() # new form data
-
-    if (current_user.id != indv_product.owner_id): # if the current user doesnt own the product we send a 401 error 
-        return {"message": "You do not own this product"}, 401
+    indv_product = Product.query.get(id)
     
     if not indv_product:
-        return {"message": "Product could not be found"}, 404 #if not found throw a 404 
+        return {"message": "Product could not be found"}, 404
     
+    if current_user.id != indv_product.owner_id:
+        return {"message": "You do not own this product"}, 401
+    
+    form = EditProductForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
 
-
-    form["csrf_token"].data = request.cookies["csrf_token"] # grab csrf token 
     if form.validate_on_submit():
-        image = form.data["product_image"] # grab image from data
-        
-        url = None
-
-        print('image', image)
-
-        if image:
-            image.filename = get_unique_filename(image.filename) # if there is an image thats not new upload it to s3 bucket 
-            upload = upload_file_to_s3(image)
-
-            if "url" not in upload:
-                return jsonify({"message": "Your image could not be uploaded"}), 500
-
-            url = upload['url']
-           
-
-        indv_product.name = form.data["name"] # set all the new data to what the user changed 
+        indv_product.name = form.data["name"]
         indv_product.type = form.data["type"]
         indv_product.price = form.data["price"]
         indv_product.description = form.data["description"]
         indv_product.gender = form.data["gender"]
         indv_product.size = form.data["size"]
         indv_product.clothing_type = form.data["clothing_type"]
-        indv_product.product_image = url
+        
+        if "product_image" in form.data:
+            image = form.data["product_image"]
+            if image:
+                image.filename = get_unique_filename(image.filename)
+                upload = upload_file_to_s3(image)
+                if "url" not in upload:
+                    return jsonify({"message": "Your image could not be uploaded"}), 500
+                indv_product.product_image = upload["url"]
 
-        db.session.commit()  # commit the new data
-        return indv_product.to_dict(), 200 # send the front end all of the data to be displayed
-    return jsonify(form.errors), 400 # if there was any form errors return a bad request 
+        db.session.commit()
+        return indv_product.to_dict(), 200
+
+    return jsonify(form.errors), 400
 
 
 @login_required

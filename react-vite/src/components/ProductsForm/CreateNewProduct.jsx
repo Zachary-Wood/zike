@@ -30,7 +30,8 @@ const CreateNewProduct = () => {
   
   const currentUser = useSelector(state => state.session.user)
 
-
+  
+  
   useEffect(() => {
     if(!currentUser) navigate("/")
   
@@ -38,6 +39,8 @@ const CreateNewProduct = () => {
 
   useEffect(() => {
     const errorsObj = {}
+
+
 
     if (name.length < 3 || name.length > 50) errorsObj.name = 'Please provide a valid name between 3 and 50 characters'
     if (!type) errorsObj.type = 'Please select a product type'
@@ -48,10 +51,13 @@ const CreateNewProduct = () => {
     if (selectedSizes.length < 3) errorsObj.selectedSizes = 'Please provide at least 3 shoe sizes'
     if (!clothing_type) errorsObj.clothing_type = "Please fill out products clothing type"
     if (!product_image) errorsObj.product_image = "Please provide an image"
-
+    if (product_image && product_image.name && !product_image.name.endsWith('.png') && !product_image.name.endsWith('.jpg') && !product_image.name.endsWith('.jpeg'))  errorsObj.product_image = 'Uploaded file must end with .png, .jpg, .jpeg'
+    
     setErrors(errorsObj)
 
   }, [name, type, price, description, gender, selectedSizes, clothing_type, product_image])
+
+
 
 
   const sizes = [
@@ -103,6 +109,7 @@ const CreateNewProduct = () => {
     }
 };
 
+  // console.log('prod', product_image.name)
   
   const handleSubmit = async (e) => {
         e.preventDefault()
@@ -296,7 +303,7 @@ return (
         
         <label>
           <div className='image-submit-con'>
-            <p>Accepted formats: PDF, PNG, JPG, JPEG</p>
+            <p>Accepted formats: PNG, JPG, JPEG</p>
             <div className='file-con'>
         <input
               type="file"

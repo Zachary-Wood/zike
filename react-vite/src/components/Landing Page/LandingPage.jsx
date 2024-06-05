@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useEffect} from "react";
 import { loadProductsThunk } from "../../redux/products";
+import { Carousel } from "../Carousel/Carousel";
 
 
 
@@ -31,7 +32,7 @@ const LandingPage = () => {
     <img src="/tatis3.jpeg" alt='Tatis picture' className="tatis"/>
 
         <div className="do-it-con">
-        <img src="/NikeLogo.png" className="do-it-logo"/>
+        <img src="/NikeLogoOrange.png" className="do-it-logo"/>
 
         </div>
     </div>
@@ -45,8 +46,14 @@ const LandingPage = () => {
         </NavLink>
 
     </div>
+    
+    
+    <Carousel/>
+    
 
 
+
+    <h1 className="shop-favorite">Shop All Products</h1>
    
     <section className="products-con">
 

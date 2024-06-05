@@ -25,5 +25,5 @@ class EditProductForm(FlaskForm):
     gender = SelectField('Gender', choices=['Male', 'Female'], validators=[DataRequired()])
     size = StringField('Size', validators=[DataRequired()])
     clothing_type = SelectField('Clothing Type', choices=['Shoes', 'Sportswear', 'Shorts', 'T-Shirts'], validators=[DataRequired()] )
-    product_image = FileField("Product Image File", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
+    product_image = FileField("Product Image File", validators=[FileAllowed(list(ALLOWED_EXTENSIONS))])
     submit = SubmitField("Create Product")

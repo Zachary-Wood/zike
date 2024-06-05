@@ -64,9 +64,7 @@ export const UpdateAReview = ({ productId, review, reviewId }) => {
     navigate(`/products/${productId}`);
     closeModal();
   };
-
-  const disabledButton = reviewText.length === 0;
-
+  
   return (
     <div className="review-modal">
       <div className="container-review">
@@ -101,7 +99,7 @@ export const UpdateAReview = ({ productId, review, reviewId }) => {
             <button
               onClick={handleSubmit}
               className="created-review"
-              disabled={disabledButton}
+              disabled={Object.values(validationErrors).length > 0}
             >
               Submit Review
             </button>

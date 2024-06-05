@@ -32,7 +32,7 @@ const UpdateAProduct = () => {
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
   const [clothing_type, setClothing_type] = useState('')
-  const [product_image, setProduct_image] = useState('')
+  const [product_image, setProduct_image] = useState(null)
   const [showImage, setShowImage] = useState()
   const [errors, setErrors] = useState({})
   
@@ -63,7 +63,6 @@ const UpdateAProduct = () => {
     if (!selectedSizes) errorsObj.selectedSizes = "Please fill out all wanted sizes"
     if (selectedSizes.length < 3) errorsObj.selectedSizes = 'Please provide at least 3 shoe sizes'
     if (!clothing_type) errorsObj.clothing_type = "Please fill out products clothing type"
-    if (!product_image) errorsObj.product_image = "Please provide an updated image"
 
     setErrors(errorsObj)
 
@@ -156,7 +155,6 @@ const UpdateAProduct = () => {
 
         
 
-        setIsLoading(false)
 
         
         try {

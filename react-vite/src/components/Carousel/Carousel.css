@@ -1,0 +1,104 @@
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    padding-bottom: 50px;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    min-width: 200px;
+    margin: 10px;
+    padding: 20px;
+    flex: 0 0 auto;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.carousel-pic-container {
+    position: relative;
+    height: 350px; 
+    width: 450px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.carouselPic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-item:hover .carousel-title {
+    visibility: visible;
+    background-color: none;
+}
+
+.carousel-title {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    top: 50px; 
+    left: 0; 
+    width: 100%; 
+    transform: translateY(-50%); 
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
+}
+
+
+
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 102, 0); 
+    border-radius: 50%; 
+    cursor: pointer; 
+    z-index: 1; 
+    border: none;
+}
+
+.carousel-button.left {
+    left: 30px;
+    font-weight: 500;
+}
+
+
+.carousel-button.right {
+    right: 30px;
+    font-weight: 500;
+}
+
+.carousel-button:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+
+}
+
+.carousel-button.left * {
+    font-weight: 500;
+    font-size: 50px;
+}

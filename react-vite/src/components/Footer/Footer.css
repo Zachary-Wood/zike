@@ -1,0 +1,43 @@
+
+.footer {
+    padding-top: 75px;
+}
+
+.footer-con {
+    width: 100%;
+    background-color: black;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.white-nike-logo {
+    height: 150px;
+    width: 150px;
+}
+
+.nike-h1-footer {
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 75px;
+}
+
+.linked-in {
+    color: white;
+    height: 30px;
+    width: 30px;
+}
+
+.linked-in-con {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.linked-in-link {
+    color: rgb(255, 102, 0);
+    font-size: 20px;
+}

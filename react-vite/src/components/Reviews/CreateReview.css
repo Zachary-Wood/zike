@@ -76,6 +76,10 @@
     padding-top: 10px;
 }
 
+.star selected {
+    cursor: pointer;
+}
+
 .review-h1 {
     padding-bottom: 20px;
 }
