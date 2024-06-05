@@ -153,6 +153,144 @@ def seed_products():
         "clothing_type": 'Shoes',
         "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/air-zoom-infinity-tour-nrg-golf-shoes-QB9QLd.jpeg' 
         },
+
+        {
+        "owner_id": 2,
+        "name": "Nike Air VaporMax 2023 Flyknit",
+        "type": "Lifestyle Shoe",
+        "price": 210,
+        "description": "Nike Air VaporMax 2023 Flyknit integrates revolutionary Flyknit technology for superior comfort and support. Its innovative Air cushioning sole ensures responsive performance, making it ideal for athletes and fashion enthusiasts seeking both style and functionality.",
+        "gender": 'Male',
+        "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
+        "clothing_type": 'Shoes',
+        "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/air-vapormax-2023-flyknit-mens-shoes-vSm5p2.png' 
+        },
+        {
+        "owner_id": 2,
+        "name": "Air Jordan 1 Low",
+        "type": "Lifestyle Shoe",
+        "price": 115,
+        "description": "Air Jordan 1 Low combines iconic design with modern comfort, featuring a timeless low-top silhouette. With premium leather construction and classic Nike Air cushioning, it delivers durability and style, perfect for everyday wear and basketball enthusiasts alike.",
+        "gender": 'Female',
+        "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
+        "clothing_type": 'Shoes',
+        "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/air-jordan-1-low-womens-shoes-rJrHLw.jpeg' 
+        },
+        {
+        "owner_id": 2,
+        "name": "Nike Killshot 2 Leather",
+        "type": "Lifestyle Shoe",
+        "price": 90,
+        "description": "Nike Killshot 2 Leather offers a blend of retro aesthetics and contemporary comfort. Crafted with premium leather and a cushioned insole, it combines style with functionality, making it ideal for casual outings and everyday activities.",
+        "gender": 'Male',
+        "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
+        "clothing_type": 'Shoes',
+        "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/killshot-2-leather-mens-shoes-72M7D1+(1).png' 
+        },
+        {
+        "owner_id": 2,
+        "name": "Air Jordan 1 Retro High OG Latte",
+        "type": "Lifestyle Shoe",
+        "price": 180,
+        "description": "Air Jordan 1 Retro High OG Latte delivers a timeless blend of classic design and modern flair. Featuring a premium leather upper in a soothing latte color scheme, it exudes sophistication. Ideal for both casual wear and sneaker enthusiasts seeking standout style.",
+        "gender": 'Female',
+        "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
+        "clothing_type": 'Shoes',
+        "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/air-jordan-1-retro-high-og-latte-womens-shoes-Dw2wdP.png' 
+        },
+
+        {
+        "owner_id": 3,
+        "name": "Nike InfinityRN 4",
+        "type": "Running Shoe",
+        "price": 160,
+        "description": "Nike InfinityRN 4: Designed for daily runs, it offers comfort and support with React foam cushioning, an engineered mesh upper for breathability, and a supportive design for stability, perfect for runners enhancing their performance stride after stride.",
+        "gender": 'Male',
+        "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
+        "clothing_type": 'Shoes',
+        "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/infinityrn-4-mens-road-running-shoes-hlqHFQ.png' 
+        },
+        {
+        "owner_id": 3,
+        "name": "Nike Streakfly",
+        "type": "Running Shoe",
+        "price": 170,
+        "description": "Nike Streakfly: Engineered for competitive runners, this shoe maximizes speed and agility with lightweight materials and a responsive midsole. Its sleek, aerodynamic silhouette enhances performance, perfect for setting personal bests in races and training sessions.",
+        "gender": 'Male',
+        "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
+        "clothing_type": 'Shoes',
+        "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/streakfly-road-racing-shoes-8rTxtR.png' 
+        },
+        {
+        "owner_id": 3,
+        "name": "Nike Mercurial Superfly 9 Elite",
+        "type": "Running Shoe",
+        "price": 285,
+        "description": "Nike Mercurial Superfly 9 Elite: Engineered for elite soccer players, this cleat offers lightweight agility, seamless fit, and explosive traction for dominating the field.",
+        "gender": 'Male',
+        "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
+        "clothing_type": 'Shoes',
+        "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/mercurial-superfly-9-elite-fg-high-top-soccer-cleats-sb8gJK.png' 
+        },
+        {
+        "owner_id": 3,
+        "name": "Nike Air Max 270",
+        "type": "Running Shoe",
+        "price": 160,
+        "description": "Nike Air Max 270: Engineered for comfort and style, featuring a large Air Max unit for responsive cushioning. With a breathable mesh upper and lightweight construction, it blends modern aesthetics with exceptional performance, ideal for everyday wear and active lifestyles.",
+        "gender": 'Male',
+        "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
+        "clothing_type": 'Shoes',
+        "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/air-max-270-mens-shoes-KkLcGR.png' 
+        },
+        {
+        "owner_id": 4,
+        "name": "Tatum 2 Legacy",
+        "type": "Basketball Shoe",
+        "price": 125,
+        "description": "Tatum 2 Legacy: Crafted for versatility and performance, this shoe boasts responsive cushioning and a supportive fit. Designed with durable materials and a sleek profile, it combines style with functionality, perfect for both on-court action and off-court style statements.",
+        "gender": 'Male',
+        "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
+        "clothing_type": 'Shoes',
+        "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/tatum-2-legacy-basketball-shoes-8XGVH8.jpeg' 
+        },
+        {
+        "owner_id": 4,
+        "name": "Nike Metcon 9",
+        "type": "Running Shoe",
+        "price": 150,
+        "description": "Nike Metcon 9: Built for strength and endurance training, it combines stability, responsive cushioning, and durable traction for intense workouts, ensuring optimal performance and comfort.",
+        "gender": 'Male',
+        "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
+        "clothing_type": 'Shoes',
+        "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/metcon-9-mens-workout-shoes-Tc42zx.png' 
+        },
+        {
+        "owner_id": 4,
+        "name": "Nike Invincible 3",
+        "type": "Running Shoe",
+        "price": 190,
+        "description": "Nike Invincible 3: Engineered for long-distance running, it features React foam cushioning for a plush, responsive feel. The Flyknit upper offers breathability and support, while the design maximizes comfort, making it ideal for runners aiming to conquer miles with ease.",
+        "gender": 'Male',
+        "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
+        "clothing_type": 'Shoes',
+        "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/invincible-3-mens-road-running-shoes-6MqQ72.jpeg' 
+        },
+        {
+        "owner_id": 4,
+        "name": "Nike Vaporfly 3",
+        "type": "Running Shoe",
+        "price": 270,
+        "description": "Built for road racing, this shoe combines lightweight construction with ZoomX foam for energy return. The aerodynamic design enhances speed, while the responsive cushioning supports endurance, making it ideal for runners aiming for peak performance in races.",
+        "gender": 'Male',
+        "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
+        "clothing_type": 'Shoes',
+        "product_image": 'https://zike-bucketl.s3.us-east-2.amazonaws.com/zike-images/vaporfly-3-mens-road-racing-shoes-8DD182.png' 
+        },
+
+        
+        
+
 ]
    
 
