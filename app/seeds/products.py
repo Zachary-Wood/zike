@@ -159,7 +159,7 @@ def seed_products():
         "name": "Nike Air VaporMax 2023 Flyknit",
         "type": "Lifestyle Shoe",
         "price": 210,
-        "description": "Nike Air VaporMax 2023 Flyknit integrates revolutionary Flyknit technology for superior comfort and support. Its innovative Air cushioning sole ensures responsive performance, making it ideal for athletes and fashion enthusiasts seeking both style and functionality.",
+        "description": "Integrates revolutionary Flyknit technology for comfort and support. Air cushioning sole ensures responsive performance, ideal for athletes and fashion enthusiasts seeking style and functionality.",
         "gender": 'Male',
         "size": "6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14",
         "clothing_type": 'Shoes',
