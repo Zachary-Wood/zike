@@ -61,7 +61,7 @@ def seed_products():
         {
         "owner_id": 3,
         "name": "Nike Zegama 2",
-        "type": "Men's Trail Running Shoes",
+        "type": "Trail Running Shoes",
         "price": 180,
         "description": "Engineered for trail excellence. Features a durable yet lightweight construction, aggressive outsole for superior traction, and responsive cushioning for comfort on rugged terrain.",
         "gender": 'Male',

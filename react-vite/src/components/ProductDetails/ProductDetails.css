@@ -92,6 +92,7 @@
     padding-left: 26%;
     padding-top: 100px;
     padding-bottom: 350px;
+    width: 55%;
     gap: 15px;
     flex-direction: column;
 
@@ -135,11 +136,10 @@ li {
     display: flex;
     border: 2px solid grey;
     flex-direction: column;
+    flex-wrap: wrap;
     gap: 30px;
     width: 25%;
-    position: absolute;
-    right: 16%;
-    height: 50%;
+    height: 500px;
     padding: 20px;
     border-radius: 15px;
     overflow-y: auto;
@@ -194,6 +194,7 @@ li {
     padding-top: 10px;
 }
 
+
 .update-review {
     background-color: black;
     color: white;
@@ -229,4 +230,9 @@ li {
 
 .review-date {
     padding-left: 15px;
+}
+
+.reviews-owner-con {
+    display: flex;
+    gap: 55px
 }

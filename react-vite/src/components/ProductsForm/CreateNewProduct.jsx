@@ -26,6 +26,8 @@ const CreateNewProduct = () => {
   const [selectAll, setSelectAll] = useState(false);
   const [clothing_type, setClothing_type] = useState('')
   const [product_image, setProduct_image] = useState('')
+  const [fileName, setFileName] = useState('');
+
   const [errors, setErrors] = useState({})
   
   const currentUser = useSelector(state => state.session.user)
@@ -99,6 +101,7 @@ const CreateNewProduct = () => {
  
   const handleFileChange = (e) => {
     const file = e.target.files[0];
+    setFileName(file.name);
     setProduct_image(file);  
     if (file) {
         const reader = new FileReader();
@@ -196,7 +199,7 @@ return (
                 <option value="" disabled>Select Type</option>
                 <option value="Slides">Slides</option>
                 <option value="Lifestyle Shoe">Lifestyle Shoe</option>
-                <option value="Trail Running Shoes">Trail Running Shoes Size</option>
+                <option value="Trail Running Shoes">Trail Running Shoes</option>
                 <option value="Basketball Shoe">Basketball Shoe</option>
                 <option value="Running Shoe">Running Shoe</option>
                 <option value="Golf Shoe">Golf Shoe</option>
@@ -222,9 +225,10 @@ return (
 
         <div className='input-con'>
     <label className='prod-desc'>
-        Product Description
-        <textarea
+        <p className='desc-label'>Product Description</p>
+        <input
             name="description"
+            type='text-area'
             placeholder='Product description'
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -236,7 +240,7 @@ return (
 
         <label>
         <div className='input-con-gender'>
-                Gender
+        <p className='desc-label'>Gender</p>
                 <select
                 type="select-field"
                 name="gender" 
@@ -282,7 +286,7 @@ return (
 
         <label>
         <div className='input-con'>
-                Clothing Type
+        <p className='desc-label'>Clothing Type</p>
                 <select
                 type="select-field"
                 name="Clothing Type" 
@@ -301,26 +305,30 @@ return (
         </label>
         {errors.clothing_type && <p className='form-errors'>{errors.clothing_type}</p>}
         
-        <label>
+        
           <div className='image-submit-con'>
-            <p>Accepted formats: PNG, JPG, JPEG</p>
-            <div className='file-con'>
-        <input
-              type="file"
-              accept="image/*"
-              onChange={handleFileChange}
-              className='input-image'
-              />
-              </div>
+            <p className='accepted'>Accepted formats: PNG, JPG, JPEG</p>
+            <div className="input-container">
+            <label htmlFor="post-image-input" className="input-label">
+            Select Image
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="input-image"
+                    id="post-image-input"
+                    />
+            </label>
           </div>
-        </label>
+        </div>
 
         <div className="image-preview-div">
-                        {showImage && <img src={showImage} className='preview-image' alt="Preview" />}
-                    </div>
+          {fileName && <p className='filename'>Selected File: {fileName}</p>}
+          {showImage && <img src={showImage} className='preview-image' alt="Preview" />}
+        </div>
         {errors.product_image && <p className='form-errors'>{errors.product_image}</p>}
 
-        <div className='btn-con-prod'>
+        <div className='btn-con-prod-create'>
         <button className='product-submit-btn' type="submit" disabled={Object.values(errors).length > 0}>Submit</button>
 
 

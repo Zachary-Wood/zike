@@ -85,13 +85,19 @@ input[type="checkbox"] {
     resize: none; 
     border: 1px solid #ccc; 
     border-radius: 12px;
-    padding: 10px; 
     width: 100%; 
     box-sizing: border-box; 
 }
 
+.desc-label {
+    padding-bottom: 3px;
+    padding-left: 3px;
+}
+
 .prod-desc {
     padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 .input-con input {
@@ -148,11 +154,55 @@ input[type="checkbox"] {
     cursor: not-allowed;
 }
 
+.btn-con-prod-create {
+    width: 250px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.input-container {
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+.input-label {
+    cursor: pointer; 
+    width: 100%;
+    height: 100%;
+    margin-left: 60px;
+    margin-top: 17px;
+  }
+  
+  .input-image {
+    display: none; 
+  }
+
+.accepted {
+    padding-bottom: 15px;
+}
+#post-image-input {
+    visibility: hidden;
+}
+
+
 
 
 .form-errors {
     color: red;
     font-size: 12px;
+    min-height: 6px;
 }
 
 .enter-all {
@@ -181,6 +231,18 @@ input[type="checkbox"] {
     width: 250px;
     object-fit: cover;
 
+}
+
+.image-preview-div {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.filename {
+    font-weight: 600;
 }
 
 

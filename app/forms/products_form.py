@@ -7,7 +7,7 @@ from app.api.AWS_helpers import ALLOWED_EXTENSIONS
 
 class ProductForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
-    type = SelectField('Type', choices=['Slides', 'Lifestyle Shoe', "Men's Trail Running Shoes", 'Basketball Shoe', 'Running Shoe', 'Golf Shoe'], validators=[DataRequired()])
+    type = SelectField('Type', choices=['Slides', 'Lifestyle Shoe', "Trail Running Shoes", 'Basketball Shoe', 'Running Shoe', 'Golf Shoe'], validators=[DataRequired()])
     price = IntegerField('Price', validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
     gender = SelectField('Gender', choices=['Male', 'Female'], validators=[DataRequired()])
@@ -19,7 +19,7 @@ class ProductForm(FlaskForm):
 
 class EditProductForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
-    type = SelectField('Type', choices=['Slides', 'Lifestyle Shoe', "Men's Trail Running Shoes", 'Basketball Shoe', 'Running Shoe', 'Golf Shoe'], validators=[DataRequired()])
+    type = SelectField('Type', choices=['Slides', 'Lifestyle Shoe', "Trail Running Shoes", 'Basketball Shoe', 'Running Shoe', 'Golf Shoe'], validators=[DataRequired()])
     price = IntegerField('Price', validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
     gender = SelectField('Gender', choices=['Male', 'Female'], validators=[DataRequired()])

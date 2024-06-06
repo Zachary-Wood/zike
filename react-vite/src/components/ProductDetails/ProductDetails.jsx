@@ -84,11 +84,53 @@ const ProductDetails = () => {
     
     </div>
 
+    <div className="reviews-owner-con">
+    <div className="buttons-con">
+    {currentUser && currentUser?.id === selectedProduct?.owner_id && (
+      <>
+      <h1>Hi {currentUser?.firstname} you own this product</h1>
+      <p>Please make any edits down below!</p>
+      
+      </>
+    )}
+    <div className="inner-buttons-con">
+    {currentUser && currentUser?.id === selectedProduct?.owner_id && (
+     
+          
+                    <OpenModalMenuItem
+                      itemText={<button className="delete-btn">Delete this product</button>}
+                      className={'delete-btn'}
+                      modalComponent={
+                        <DeleteAProduct
+                          productId={selectedProduct?.id}
+                          
+                        />
+                      }
+                    />
+                  )}
+
+
+    {currentUser?.id === selectedProduct?.owner_id && (
+           
+           <NavLink
+             to={`/products/${selectedProduct?.id}/update`}
+             className={'update-product-link'}
+           >
+             Update Your Product
+           </NavLink>
+
+  )}
+  </div>
+
+  </div>
+
 
     <div className="reviews-container">
     <h3 style={{ cursor: "pointer" }}>Reviews and Ratings</h3>
+          {selectedProduct?.reviews?.length < 1 && <p>Currently no reviews for this product</p>}
           {selectedProduct && selectedProduct?.reviews?.map((review) => 
               <div className="review-text-con" key={review.id}>
+                
                 <div className="name-created">
                 <p className="review-firstname">{review.user_firstname}</p>
                 <div className="star-con">
@@ -145,45 +187,8 @@ const ProductDetails = () => {
 
 
     </div>
-
-    <div className="buttons-con">
-    {currentUser && currentUser?.id === selectedProduct?.owner_id && (
-      <>
-      <h1>Hi {currentUser?.firstname} you own this product</h1>
-      <p>Please make any edits down below!</p>
-      
-      </>
-    )}
-    <div className="inner-buttons-con">
-    {currentUser && currentUser?.id === selectedProduct?.owner_id && (
-     
-          
-                    <OpenModalMenuItem
-                      itemText={<button className="delete-btn">Delete this product</button>}
-                      className={'delete-btn'}
-                      modalComponent={
-                        <DeleteAProduct
-                          productId={selectedProduct?.id}
-                          
-                        />
-                      }
-                    />
-                  )}
-
-
-    {currentUser?.id === selectedProduct?.owner_id && (
-           
-           <NavLink
-             to={`/products/${selectedProduct?.id}/update`}
-             className={'update-product-link'}
-           >
-             Update Your Product
-           </NavLink>
-
-  )}
-  </div>
-
-  </div>
+    </div>
+    
 </div>
 )
 }
