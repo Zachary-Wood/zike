@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useEffect} from "react";
 import { loadProductsThunk } from "../../redux/products";
 import { Carousel } from "../Carousel/Carousel";
+import nikevid from '../../../public/nikevid.mp4'
 
 
 
@@ -27,20 +28,23 @@ const LandingPage = () => {
   }, [dispatch, randProduct]);
   
     return (
+    
     <div className="fullpage-landing">
-    <div className="image-con">
-    <img src="/tatis3.jpeg" alt='Tatis picture' className="tatis"/>
-
-        <div className="do-it-con">
-        <img src="/NikeLogoOrange.png" className="do-it-logo"/>
-
-        </div>
-    </div>
-
+    
+    
+    <video
+                autoPlay
+                loop
+                muted
+                className="tatis"
+            >
+                <source src={nikevid} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
     <div className="under-image-text-con">
 
         <h1 className="tatis-header"> A STAR ALWAYS SHINES </h1>
-        <p className="tatis-text">San Diego Padres star Fernando Tatis Jr&apos;s style is built for the bright lights on and off the field</p>
+        <p className="tatis-text">Shine like a star with Nike on, where performance meets style. </p>
         <NavLink to={`/products/${randProduct}`}>
         <button className="shop-tatis-button">Shop now</button>
         </NavLink>
