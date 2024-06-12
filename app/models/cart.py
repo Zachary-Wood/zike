@@ -10,9 +10,8 @@ class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('products.id')), nullable=False)
-    total_price = db.Column(db.Integer)
+    size = db.Column(db.String(25))
     quantity = db.Column(db.Integer)
-    status = db.Column(db.String)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 
@@ -24,9 +23,8 @@ class Cart(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'product_id': self.product_id,
-            'total_price': self.total_price,
+            'size': self.size,
             'quantity': self.quantity,
-            'status': self.status,
             'created_at': self.created_at,
             'updated_at': self.updated_at
 

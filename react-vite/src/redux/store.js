@@ -8,12 +8,14 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import productReducer from "./products";
 import reviewReducer from "./reviews";
+import cartReducer from "./cart";
 
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   productReducer: productReducer,
-  reviews: reviewReducer
+  reviews: reviewReducer,
+  cart: cartReducer
 });
 
 let enhancer;

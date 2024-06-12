@@ -23,6 +23,7 @@ class Product(db.Model):
 
     owner = db.relationship('User', back_populates='products')
     reviews = db.relationship('Review', back_populates='product', cascade="all, delete-orphan")
+    carts = db.relationship('Cart', back_populates='product')
 
     
     
