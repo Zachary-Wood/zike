@@ -39,7 +39,7 @@ const deleteAProduct = (productId) => ({
 
 
 export const loadProductsThunk = () => async (dispatch) => {
-    const res = await fetch('/api/products')
+    const res = await fetch('/api/products/')
     const data = await res.json() 
 
     if (!res.ok) {
