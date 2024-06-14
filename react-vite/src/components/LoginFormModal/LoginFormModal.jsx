@@ -32,8 +32,8 @@ function LoginFormModal() {
   useEffect(() => {
     const errorsObj = {}
 
-    if (!email && email.length < 7) errorsObj.email = "Email is required and be more than 7 characters"
-    if (!password && password.length < 8) errorsObj.password = 'Password must be 8 or more characters'
+    if (!email || email.length < 7) errorsObj.email = "Email is required and be more than 7 characters"
+    if (!password || password.length < 8) errorsObj.password = 'Password must be 8 or more characters'
 
     setErrors(errorsObj)
   }, [email, password]) 

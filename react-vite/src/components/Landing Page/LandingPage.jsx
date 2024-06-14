@@ -1,5 +1,6 @@
 import "./LandingPage.css"
 import { useDispatch, useSelector } from "react-redux";
+import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useEffect} from "react";
 import { loadProductsThunk } from "../../redux/products";
@@ -19,6 +20,7 @@ const LandingPage = () => {
 
 
   const dispatch = useDispatch();
+  const hiddenElementsRef = useRef([]);
   const randProduct = Math.floor(Math.random() * 12) + 1;
   
   useEffect(() => {
@@ -26,6 +28,26 @@ const LandingPage = () => {
   
   
   }, [dispatch, randProduct]);
+
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    });
+
+    const hiddenElements = hiddenElementsRef.current.filter(el => el !== null);
+    hiddenElements.forEach(el => observer.observe(el));
+
+    return () => {
+      hiddenElements.forEach(el => observer.unobserve(el));
+    };
+  }, [products]);
   
     return (
     
@@ -59,39 +81,25 @@ const LandingPage = () => {
 
     <h1 className="shop-favorite">Shop All Products</h1>
    
-    <section className="products-con">
-
-      {products?.map((product) => (
-        <NavLink 
-        className={'product-item-con'}
-        key={product.id}
-        to={`/products/${product.id}`}
-        >
-        
-        <div className="product-card-con">
-          <img 
-          className="product-image"
-          src={product?.product_image}
-          />
-          <div className="product-text-con">
-
-          <h3 className="product-name">{product?.name}</h3>
-          <p className="product-type">{product?.type}</p>
-          <p className="product-price">${product?.price}</p>
-          </div>
-
-
-        </div>
-        
-
-        </NavLink>
-      ))}
-
-
-
-    </section>
-
-
+    <section className="products-con hidden" ref={(el) => hiddenElementsRef.current[0] = el}>
+        {products?.map((product, index) => (
+          <NavLink 
+            className='product-item-con'
+            key={product.id}
+            to={`/products/${product.id}`}
+            ref={(el) => hiddenElementsRef.current[index + 1] = el}
+          >
+            <div className="product-card-con">
+              <img className="product-image" src={product?.product_image} alt={product?.name} />
+              <div className="product-text-con">
+                <h3 className="product-name">{product?.name}</h3>
+                <p className="product-type">{product?.type}</p>
+                <p className="product-price">${product?.price}</p>
+              </div>
+            </div>
+          </NavLink>
+        ))}
+      </section>
 
 
 
