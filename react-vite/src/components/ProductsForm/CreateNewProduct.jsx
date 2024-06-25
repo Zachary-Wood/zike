@@ -226,9 +226,8 @@ return (
         <div className='input-con'>
     <label className='prod-desc'>
         <p className='desc-label'>Product Description</p>
-        <input
+        <textarea
             name="description"
-            type='text-area'
             placeholder='Product description'
             value={description}
             onChange={(e) => setDescription(e.target.value)}

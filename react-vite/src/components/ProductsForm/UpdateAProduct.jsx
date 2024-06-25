@@ -235,8 +235,8 @@ return (
         <label>
         <div className='input-con'>
                 Product Description
-                <input
-                type="text-area"
+                <textarea
+                type="textarea"
                 name="description" 
                 placeholder='Product description'
                 value={description}
