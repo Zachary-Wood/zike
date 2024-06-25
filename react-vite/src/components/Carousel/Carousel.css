@@ -102,3 +102,17 @@
     font-weight: 500;
     font-size: 50px;
 }
+
+
+@media (max-width: 600px) {
+    .carousel-item {
+        padding: 0;
+        margin: 0;
+        width: 95%;
+        gap: 25px
+    }
+
+    .carousel-container {
+        gap: 75px;
+    }
+}

@@ -198,6 +198,37 @@
   cursor: pointer;
 }
 
+@media (max-width: 600px) {
+    
+  .nav-bar-con {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid rgb(233, 227, 227);
+  }
+
+  .profile-button { 
+    position: absolute;
+    top: 40px;
+    right: 15px;
+    
+  }
+
+  .search-box {
+    margin-bottom: 30px;
+  }
+
+  .profile-dropdown {
+    right: 15px;
+  }
+
+  
+}
+
+
+
+
 
 
 

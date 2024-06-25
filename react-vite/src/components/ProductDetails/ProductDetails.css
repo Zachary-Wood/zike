@@ -3,7 +3,7 @@
 .spot-details-con {
     display: flex;
     padding-top: 100px;
-    padding-left: 25%;
+    padding-left: 20%;
 }
 
 .product-image-details {
@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 35%;
+    width: 40%;
     padding-bottom: 100px;
 }
 
@@ -89,10 +89,10 @@
 
 .buttons-con {
     display: flex;
-    padding-left: 26%;
+    padding-left: 20%;
     padding-top: 100px;
     padding-bottom: 350px;
-    width: 55%;
+    width: 50%;
     gap: 15px;
     flex-direction: column;
 
@@ -100,7 +100,7 @@
 
 .delete-btn {
     text-decoration: none;
-    width: 250px;
+    width: 225px;
     height: 50px;
     border-radius: 15px;
     color: white;
@@ -115,7 +115,7 @@ li {
 
 .update-product-link {
     text-decoration: none;
-    width: 250px;
+    width: 225px;
     height: 50px;
     border-radius: 15px;
     color: white;
@@ -143,6 +143,7 @@ li {
     border-radius: 15px;
     overflow-y: auto; 
     overflow-x: hidden; 
+    margin-left: 100px;
 
 }
 
@@ -235,4 +236,65 @@ li {
 .reviews-owner-con {
     display: flex;
     gap: 55px
+}
+
+
+
+@media (max-width: 600px) {
+    .spot-details-con {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        padding-top: 50px;
+    }
+
+    .product-image-details {
+        width: 400px;
+        height: 400px;
+        padding: 0;
+        object-fit: cover;
+    }
+
+    .products-details-text-con {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .reviews-container {
+        width: 95%;
+        margin: 10px;
+       
+    }
+
+    .buttons-con {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        padding-left: 0;
+        padding: 15px;
+        padding-top: 30px;
+    }
+
+    .reviews-owner-con {
+        flex-direction: column;
+    }
+
+    .delete-btn {
+        width: 48%;
+    }
+
+    .update-product-link {
+        width: 48%;
+        align-self: center;
+    }
+
+    .inner-buttons-con {
+        gap: 15px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+
 }

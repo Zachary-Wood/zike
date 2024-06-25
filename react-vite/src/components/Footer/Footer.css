@@ -41,3 +41,20 @@
     color: rgb(255, 102, 0);
     font-size: 20px;
 }
+
+
+@media (max-width: 600px) {
+    
+    .footer-con {
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        gap: 40px;
+        
+    }
+    .nike-h1-footer {
+        padding-bottom: 50px;
+    }
+
+
+}

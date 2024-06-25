@@ -253,3 +253,18 @@ input[type="checkbox"] {
 
 
 
+@media (max-width: 600px) {
+    .add-your-product {
+        text-align: center;
+    }
+
+    .button-box {
+        width: 95%;
+    }
+
+    .filename {
+        text-align: center;
+        padding-bottom: 15px;
+    }
+}
+
