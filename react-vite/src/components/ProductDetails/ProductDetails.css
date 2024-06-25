@@ -136,14 +136,14 @@ li {
     display: flex;
     border: 2px solid grey;
     flex-direction: column;
-    flex-wrap: wrap;
     gap: 30px;
-    width: 25%;
+    width: 30%;
     height: 500px;
     padding: 20px;
     border-radius: 15px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow-y: auto; 
+    overflow-x: hidden; 
+
 }
 
 

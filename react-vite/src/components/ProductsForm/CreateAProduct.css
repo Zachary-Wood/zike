@@ -65,6 +65,8 @@ input[type="checkbox"] {
     align-items: center;
     justify-content: center;
     gap: 25px;
+    overflow-y: auto; 
+    overflow-x: hidden;
 }
 
 
@@ -75,18 +77,22 @@ input[type="checkbox"] {
 }
 
 .product-description {
-    height: 200px;
-    padding-bottom: 150px;
-    overflow-x: hidden;
-    overflow-y: auto; 
-    overflow-wrap: break-word;
-    word-wrap: break-word; 
-    word-break: break-word; 
-    resize: none; 
-    border: 1px solid #ccc; 
-    border-radius: 12px;
-    width: 100%; 
-    box-sizing: border-box; 
+    
+        height: 200px;
+        padding: 10px;
+        padding-bottom: 150px;
+        width: 375px;
+        overflow-wrap: break-word; 
+        word-break: break-word; 
+        white-space: normal; 
+        resize: none;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+    
+    
 }
 
 .desc-label {
