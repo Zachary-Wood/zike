@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 350px;
 }
 
 .sign-up-h1 {
@@ -26,6 +27,8 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 7.5px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .button-on-signup {
@@ -36,4 +39,14 @@
     display: flex;
     align-items: center;
     gap: 170px;
+}
+
+.login-input-signup {
+    height: 30px;
+    border-radius: 4px;
+    border: 2px solid rgb(176, 173, 173);
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box; 
+    font-size: 16px;
 }

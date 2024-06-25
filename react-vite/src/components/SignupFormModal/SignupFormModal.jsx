@@ -74,7 +74,7 @@ function SignupFormModal() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className='login-input'
+            className='login-input-signup'
           />
           </div>
         </label>
@@ -87,7 +87,7 @@ function SignupFormModal() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            className='login-input'
+            className='login-input-signup'
           />
           </div>
         </label>
@@ -102,7 +102,7 @@ function SignupFormModal() {
             type="text"
             value={firstname}
             onChange={(e) => setFirstname(e.target.value)}
-            className='login-input'
+            className='login-input-signup'
           />{" "}
           </div>
         </label>
@@ -114,7 +114,7 @@ function SignupFormModal() {
             type="text"
             value={lastname}
             onChange={(e) => setLastname(e.target.value)}
-            className='login-input'
+            className='login-input-signup'
           />
           </div>
         </label>
@@ -128,7 +128,7 @@ function SignupFormModal() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className='login-input'
+            className='login-input-signup'
           />
           </div>
         </label>
@@ -142,7 +142,7 @@ function SignupFormModal() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
-            className='login-input'
+            className='login-input-signup'
           />
           </div>
         </label>
