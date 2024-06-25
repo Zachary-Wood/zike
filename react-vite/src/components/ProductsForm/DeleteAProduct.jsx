@@ -10,7 +10,7 @@ import { deleteAProductThunk } from "../../redux/products"
 
 export const DeleteAProduct = ({productId}) => {
 
-    console.log(productId)
+    // console.log(productId)
    
     const {closeModal} = useModal()
     const dispatch = useDispatch()

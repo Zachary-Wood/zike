@@ -19,11 +19,11 @@ const ProductDetails = () => {
   const product = useSelector((state) => state.productReducer)
 
   const currentUser = useSelector((state) => state.session.user)
-  console.log(currentUser)
+  // console.log(currentUser)
 
   const selectedProduct = product[productId]
 
-  console.log(selectedProduct);
+  // console.log(selectedProduct);
 
   const sizesArray = selectedProduct?.size ? selectedProduct.size.split(', ') : [];
 

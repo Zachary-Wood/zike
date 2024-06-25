@@ -14,7 +14,7 @@ const LandingPage = () => {
 
   let products = useSelector((state) => state.productReducer)
   products = Object.values(products)
-  console.log(products);
+  // console.log(products);
   // let navigate = useNavigate()
   
 

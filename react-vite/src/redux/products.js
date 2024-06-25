@@ -69,7 +69,7 @@ export const createAProductThunk = (product) => async (dispatch) => {
     })
     
     const data = await res.json()
-    console.log('this is data', data)
+    // console.log('this is data', data)
 
     if (!res.ok) {
         return { errors: data };
@@ -129,7 +129,7 @@ function productReducer(state = {}, action){
         }
         case CREATE_PRODUCT: {
             const newState = { ...state };
-            console.log('payload', action.payload)
+            ('payload', action.payload)
             newState[action.payload.id] = action.payload;
             
             return newState;

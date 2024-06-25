@@ -13,7 +13,7 @@ import LoadingModal from '../Loading/Loading'
 const UpdateAProduct = () => {
   
     const { productId } = useParams()
-    console.log(productId)
+    // console.log(productId)
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -51,7 +51,7 @@ const UpdateAProduct = () => {
   
   const sizeString = selectedSizes.join(', ')
   // console.log('size',sizeString.length)
-  console.log(selectedSizes)
+  // console.log(selectedSizes)
 
   useEffect(() => {
     const errorsObj = {}

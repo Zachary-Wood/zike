@@ -12,7 +12,7 @@ export const DeleteReview = ({ reviewId }) => {
     const { closeModal } = useModal();
 
     const { productId } = useParams()
-    console.log(productId)
+    // console.log(productId)
 
     const deleteReviewEvent = (e) => {
       e.preventDefault();
