@@ -14,21 +14,21 @@ import DeleteReview from "../Reviews/DeleteReview"
 
 
 const ProductDetails = () => {
-  const {productId} = useParams()
-  const dispatch = useDispatch()
-  const product = useSelector((state) => state.productReducer)
+  const {productId} = useParams() // we grab the product id from the 
+  const dispatch = useDispatch() // dispatch variable to use in our useEffect
+  const product = useSelector((state) => state.productReducer) // we grab the certain product from redux
 
-  const currentUser = useSelector((state) => state.session.user)
+  const currentUser = useSelector((state) => state.session.user) // grab the session user
   console.log(currentUser)
 
-  const selectedProduct = product[productId]
+  const selectedProduct = product[productId] // we get the product the user clicked on and store it to a variable to display the data 
 
   console.log(selectedProduct);
 
-  const sizesArray = selectedProduct?.size ? selectedProduct.size.split(', ') : [];
+  const sizesArray = selectedProduct?.size ? selectedProduct.size.split(', ') : []; // empty array or shoe sizes array so we can select a shoe size
 
 
-  let hasReviewed = [];
+  let hasReviewed = []; // function to check if the user had reviewd the product 
   selectedProduct?.reviews?.forEach((review) => {
     hasReviewed.push(review.user_id);
   });
@@ -40,7 +40,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            await dispatch(loadProductsThunk());
+            await dispatch(loadProductsThunk()); // dispatch our thunks to get the data 
             await dispatch(loadProductByIdThunk(productId));
             window.scrollTo(0, 0);
         } catch (error) {
@@ -56,7 +56,8 @@ const ProductDetails = () => {
   
   
   
-  
+
+  // all the jsx to show the product, add product owner privlages, and shoe the shoe sizes for the product
   
     return (
     <div className="details-page-con">
