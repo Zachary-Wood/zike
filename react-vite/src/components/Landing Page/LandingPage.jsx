@@ -10,18 +10,18 @@ import { Carousel } from "../Carousel/Carousel";
 const LandingPage = () => {
   // fix for main
 
-  let products = useSelector((state) => state.productReducer)
-  products = Object.values(products)
+  let products = useSelector((state) => state.productReducer) // we grab all of the products from redux also known as our storage manager 
+  products = Object.values(products) // we change the products to an array so we can iterate through the data to display
   console.log(products);
   // let navigate = useNavigate()
   
 
 
-  const dispatch = useDispatch();
-  const randProduct = Math.floor(Math.random() * 12) + 1;
+  const dispatch = useDispatch(); // we create a dispatch variable to dispatch our thunk at a later time to retrive the data we want
+  const randProduct = Math.floor(Math.random() * 12) + 1; // random equation to get a random number of a product 
   
   useEffect(() => {
-    dispatch((loadProductsThunk()));
+    dispatch((loadProductsThunk())); // dispatch our thunk to recieve all of our product data 
   
   
   }, [dispatch, randProduct]);
@@ -54,9 +54,11 @@ const LandingPage = () => {
 
 
     <h1 className="shop-favorite">Shop All Products</h1>
-   
+    
     <section className="products-con">
-
+      {/* 
+      Here we ieterate through all of the products and show the image, name, type, and the price to show on the homepage to the user
+      */}
       {products?.map((product) => (
         <NavLink 
         className={'product-item-con'}
