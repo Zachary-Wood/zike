@@ -99,10 +99,10 @@ def post_new_products():
     return jsonify(form.errors), 400
 
 
-@login_required
-@product_routes.route("/<int:id>", methods=["PUT"])
-def update_product(id):
-    indv_product = Product.query.get(id)
+@login_required # we make sure the user is logged in to update a product
+@product_routes.route("/<int:id>", methods=["PUT"]) # we use a put method to update an existing product
+def update_product(id): # we grab the id from the url
+    indv_product = Product.query.get(id) #we query through the products to find the one we want to update
     
     if not indv_product:
         return {"message": "Product could not be found"}, 404
